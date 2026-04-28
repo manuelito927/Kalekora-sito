@@ -3,46 +3,498 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventi | Kalekora</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Eventi | Macramè</title>
+
+  <style>
+
+    :root{
+      --sand:#bca98d;
+      --cream:#f3f3ef;
+      --black:#1f1f1f;
+      --white:#ffffff;
+      --blue:#c8d8df;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--cream);
+      font-family:Arial,sans-serif;
+      color:var(--black);
+    }
+
+    .top-header{
+      background:var(--sand);
+      padding:34px 34px 40px;
+    }
+
+    .browser-bar{
+      background:#eddcb8;
+      border-radius:999px;
+      padding:18px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:#000;
+      box-shadow:
+      0 10px 30px rgba(0,0,0,.12),
+      inset 0 2px 0 rgba(255,255,255,.4);
+    }
+
+    .browser-bar span{
+      font-size:20px;
+      font-weight:700;
+    }
+
+    .logo-row{
+      margin-top:60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .big-logo{
+      width:120px;
+      height:120px;
+      border:6px solid white;
+      border-radius:50%;
+      opacity:.95;
+    }
+
+    .menu{
+      width:72px;
+      height:72px;
+      background:rgba(255,255,255,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:42px;
+    }
+
+    .hero{
+      height:340px;
+      background:
+      linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+      url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=80")
+      center/cover no-repeat;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero h1{
+      color:white;
+      font-size:74px;
+      font-family:Georgia,serif;
+      font-weight:500;
+      letter-spacing:.04em;
+    }
+
+    .intro{
+      padding:90px 48px 40px;
+      text-align:center;
+    }
+
+    .intro p{
+      font-size:25px;
+      line-height:2;
+      letter-spacing:.08em;
+      margin-bottom:26px;
+    }
+
+    .intro strong{
+      font-style:italic;
+      font-weight:800;
+    }
+
+    .date-btn{
+      margin-top:44px;
+      display:inline-block;
+      border:4px solid #000;
+      padding:26px 42px;
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-decoration:none;
+      color:#000;
+    }
+
+    .note{
+      margin-top:52px;
+      font-size:18px;
+      line-height:1.9;
+      letter-spacing:.08em;
+    }
+
+    .music-card{
+      margin:70px 42px;
+      background:#d7c0a0;
+      padding:80px 30px;
+      text-align:center;
+      color:white;
+    }
+
+    .music-card h2{
+      font-family:Georgia,serif;
+      font-size:68px;
+      font-weight:500;
+      line-height:1.1;
+      margin-bottom:16px;
+    }
+
+    .music-card h2 span{
+      display:block;
+      font-size:46px;
+    }
+
+    .music-btn{
+      display:inline-block;
+      margin-top:42px;
+      border:4px solid white;
+      padding:28px 34px;
+      color:white;
+      text-decoration:none;
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .event-img{
+      padding:0 42px 80px;
+    }
+
+    .event-img img{
+      width:100%;
+      display:block;
+    }
+
+    .private-event{
+      position:relative;
+      height:780px;
+      background:
+      linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+      url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80")
+      center/cover no-repeat;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px;
+    }
+
+    .private-content h2{
+      color:white;
+      font-family:Georgia,serif;
+      font-size:72px;
+      line-height:1.05;
+      font-weight:500;
+      margin-bottom:20px;
+    }
+
+    .private-content h2 span{
+      display:block;
+      font-size:46px;
+      font-weight:400;
+    }
+
+    .contact-btn{
+      margin-top:40px;
+      display:inline-block;
+      background:white;
+      color:#000;
+      padding:30px 70px;
+      font-size:26px;
+      font-weight:800;
+      text-decoration:none;
+      letter-spacing:.06em;
+    }
+
+    .blue-section{
+      background:var(--blue);
+      padding:40px 0 90px;
+    }
+
+    .blue-section img{
+      width:calc(100% - 84px);
+      margin:0 42px;
+      display:block;
+    }
+
+    .partners{
+      padding:100px 40px 60px;
+      text-align:center;
+    }
+
+    .partners h2{
+      font-family:Georgia,serif;
+      font-size:72px;
+      font-weight:500;
+      margin-bottom:70px;
+    }
+
+    .partner{
+      position:relative;
+      margin-bottom:100px;
+    }
+
+    .partner img{
+      width:80%;
+      max-width:500px;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:90px;
+      color:var(--sand);
+      opacity:.8;
+    }
+
+    .arrow.left{
+      left:0;
+    }
+
+    .arrow.right{
+      right:0;
+    }
+
+    .footer{
+      padding:50px 40px 120px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#87a5c8;
+      font-size:86px;
+      font-family:Georgia,serif;
+      font-style:italic;
+      margin-bottom:30px;
+    }
+
+    .footer-text{
+      font-size:25px;
+      line-height:1.9;
+      letter-spacing:.06em;
+      margin-bottom:50px;
+    }
+
+    .social{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:.12em;
+      margin-bottom:90px;
+    }
+
+    .newsletter h3,
+    .contacts h3{
+      font-size:26px;
+      letter-spacing:.1em;
+      margin-bottom:38px;
+    }
+
+    input{
+      width:100%;
+      border:none;
+      border-bottom:3px solid #aaa;
+      background:transparent;
+      padding:20px 0;
+      font-size:24px;
+      margin-bottom:28px;
+    }
+
+    .subscribe{
+      width:100%;
+      border:none;
+      background:var(--sand);
+      color:white;
+      padding:28px;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:.1em;
+    }
+
+    .contacts{
+      margin-top:90px;
+    }
+
+    .contacts p{
+      font-size:24px;
+      line-height:1.9;
+      letter-spacing:.05em;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<header class="navbar">
-  <a class="logo" href="index.html">KALEKORA</a>
+<section class="top-header">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="spiaggia.html">Spiaggia</a>
-    <a href="ristorante.html">Ristorante</a>
-    <a href="eventi.html">Eventi</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
-
-  <a href="#" class="book-btn">BOOK NOW</a>
-</header>
-
-<section class="page-hero events">
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <p class="eyebrow">Eventi</p>
-
-    <h1>
-      Musica & tramonti
-    </h1>
+  <div class="browser-bar">
+    <div>☰</div>
+    <span>macramemonopoli.it</span>
+    <div>↻</div>
   </div>
+
+  <div class="logo-row">
+    <div class="big-logo"></div>
+    <div class="menu">☰</div>
+  </div>
+
 </section>
 
-<section class="section">
-  <h2>Esperienze esclusive</h2>
+<section class="hero">
+  <h1>EVENTI</h1>
+</section>
+
+<section class="intro">
 
   <p>
-    Aperitivi, dj set, beach party ed eventi privati
-    in una location unica sul mare.
+    Eventi internazionali con i migliori dj e artisti,
   </p>
+
+  <p>
+    happy hours e aperitivi musicali al tramonto
+  </p>
+
+  <p>
+    <strong>
+      il giovedì, venerdì, sabato e domenica tutte le settimane
+    </strong>
+  </p>
+
+  <a href="#" class="date-btn">
+    VENERDÌ, 01 MAGGIO
+  </a>
+
+  <div class="note">
+    * Macramè si riserva il <strong>diritto di selezione</strong> all’ingresso.<br>
+    Registrazione online e prenotazione tavolo <strong>non garantiscono</strong> l’ingresso.<br>
+    L’evento è riservato a un pubblico <strong>OVER 23</strong> anni d’età.
+  </div>
+
+</section>
+
+<section class="music-card">
+
+  <h2>
+    LIVE MUSIC
+    <span>e drink</span>
+  </h2>
+
+  <a href="#" class="music-btn">
+    SEGUICI PER RIMANERE AGGIORNATO
+  </a>
+
+</section>
+
+<section class="event-img">
+  <img src="https://images.unsplash.com/photo-1571266028243-d220c9f1b8aa?auto=format&fit=crop&w=1200&q=80">
+</section>
+
+<section class="private-event">
+
+  <div class="private-content">
+
+    <h2>
+      PRENOTA IL TUO
+      <br>
+      EVENTO PRIVATO
+
+      <span>
+        in una location unica e suggestiva
+      </span>
+    </h2>
+
+    <a href="#" class="contact-btn">
+      CONTATTACI
+    </a>
+
+  </div>
+
+</section>
+
+<section class="blue-section">
+
+  <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80">
+
+</section>
+
+<section class="partners">
+
+  <h2>Partners</h2>
+
+  <div class="partner">
+
+    <div class="arrow left">‹</div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/RedBullEnergyDrink.svg/1200px-RedBullEnergyDrink.svg.png">
+
+    <div class="arrow right">›</div>
+
+  </div>
+
+  <div class="partner">
+
+    <div class="arrow left">‹</div>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Grey_Goose_logo.svg/2560px-Grey_Goose_logo.svg.png">
+
+    <div class="arrow right">›</div>
+
+  </div>
+
+</section>
+
+<section class="footer">
+
+  <div class="footer-logo">
+    macramè
+  </div>
+
+  <p class="footer-text">
+    vivi un’esperienza coinvolgente e completa per tutta la giornata:
+    spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+  </p>
+
+  <div class="social">
+    SEGUICI SU ● ● ● ●
+  </div>
+
+  <div class="newsletter">
+
+    <h3>NEWSLETTER</h3>
+
+    <input type="email" placeholder="Indirizzo e-mail">
+
+    <button class="subscribe">
+      ISCRIVITI
+    </button>
+
+  </div>
+
+  <div class="contacts">
+
+    <h3>INDIRIZZO E CONTATTI</h3>
+
+    <p>
+      Via Procaccia, 58<br>
+      70043 Monopoli (Ba) - Italy<br>
+      Beach: +39 371 5222337<br>
+      080 3003024
+    </p>
+
+  </div>
+
 </section>
 
 </body>
