@@ -382,6 +382,61 @@
       <p>Via Procaccia, 58<br>70043 Monopoli (Ba) - Italy</p>
     </div>
   </footer>
+<!-- METTI QUESTO PRIMA DI </body> -->
 
+<style>
+  .mobile-menu{
+    position:fixed;
+    top:190px;
+    left:0;
+    width:100%;
+    background:#bca98d;
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:30px;
+    gap:24px;
+  }
+
+  .mobile-menu a{
+    color:white;
+    text-decoration:none;
+    font-size:26px;
+    letter-spacing:.08em;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    padding-bottom:16px;
+  }
+</style>
+
+<script>
+  const menuBtn = document.querySelector(".menu-btn");
+
+  menuBtn.addEventListener("click", () => {
+
+    const existingMenu = document.querySelector(".mobile-menu");
+
+    if (existingMenu) {
+      existingMenu.remove();
+      return;
+    }
+
+    const menu = document.createElement("div");
+
+    menu.className = "mobile-menu";
+
+    menu.innerHTML = `
+      <a href="index.html">Home</a>
+      <a href="spiaggia.html">Spiaggia</a>
+      <a href="ristorante.html">Ristorante</a>
+      <a href="eventi.html">Eventi</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contatti.html">Contatti</a>
+    `;
+
+    document.body.appendChild(menu);
+  });
+</script>
 </body>
 </html>
