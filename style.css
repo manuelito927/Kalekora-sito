@@ -768,21 +768,7 @@ a {
   font-weight: 700;
 }
 
-.menu-btn {
-  width: 90px;
-  height: 90px;
-  background: rgba(255,255,255,0.12);
-  color: white;
-  font-size: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: fixed;
-  top: 120px;
-  right: 40px;
-  z-index: 9999;
-}
+
 
 .mobile-menu {
   position: fixed;
