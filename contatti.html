@@ -4,51 +4,563 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contatti | Kalekora</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root{
+      --sand:#bca98d;
+      --cream:#f2f2ee;
+      --text:#1d1d1d;
+      --pink:#cc4f7a;
+      --line:#b6b6b6;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--cream);
+      color:var(--text);
+      font-family:Arial,sans-serif;
+    }
+
+    .top-header{
+      background:var(--sand);
+      padding:34px 34px 40px;
+    }
+
+    .browser-bar{
+      background:#f1ddb8;
+      border-radius:999px;
+      padding:18px 28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 10px 28px rgba(0,0,0,.13);
+      font-size:28px;
+    }
+
+    .browser-bar span{
+      font-size:21px;
+      font-weight:700;
+    }
+
+    .logo-row{
+      margin-top:50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      color:white;
+      font-size:95px;
+    }
+
+    .menu{
+      width:72px;
+      height:72px;
+      background:rgba(255,255,255,.12);
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:42px;
+    }
+
+    .hero{
+      height:300px;
+      background:
+      linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+      url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80")
+      center/cover no-repeat;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero h1{
+      color:white;
+      font-family:Georgia,serif;
+      font-size:64px;
+      font-weight:500;
+      letter-spacing:.04em;
+    }
+
+    .intro{
+      padding:90px 45px;
+      text-align:center;
+    }
+
+    .intro h2{
+      font-family:Georgia,serif;
+      font-size:74px;
+      line-height:1;
+      margin-bottom:18px;
+      font-weight:500;
+    }
+
+    .intro h3{
+      font-family:Georgia,serif;
+      font-size:42px;
+      font-weight:500;
+      margin-bottom:55px;
+    }
+
+    .intro p{
+      font-size:25px;
+      line-height:2;
+      letter-spacing:.05em;
+    }
+
+    .italic{
+      font-style:italic;
+      margin-top:10px;
+    }
+
+    .info-section{
+      padding:0 42px;
+    }
+
+    .card{
+      border-top:2px solid var(--line);
+      padding:60px 0;
+      text-align:center;
+    }
+
+    .icon{
+      font-size:70px;
+      color:var(--sand);
+      margin-bottom:30px;
+    }
+
+    .card h3{
+      font-size:28px;
+      letter-spacing:.12em;
+      margin-bottom:40px;
+    }
+
+    .card p{
+      font-size:25px;
+      line-height:2;
+      letter-spacing:.04em;
+    }
+
+    .pink{
+      color:var(--pink);
+    }
+
+    .map-box{
+      margin:60px 42px;
+      background:#f7f7f7;
+      padding:40px;
+    }
+
+    .map-box img{
+      width:100%;
+      display:block;
+      margin-bottom:50px;
+    }
+
+    .map-box h2{
+      text-align:center;
+      color:var(--sand);
+      font-family:Georgia,serif;
+      font-size:62px;
+      font-weight:500;
+      margin-bottom:40px;
+    }
+
+    .map-box p{
+      text-align:center;
+      color:var(--sand);
+      font-size:30px;
+      line-height:2;
+      font-weight:700;
+    }
+
+    .form-section{
+      margin:60px 42px;
+      background:#f8f8f8;
+      padding:70px 45px;
+    }
+
+    .form-section h2{
+      text-align:center;
+      color:var(--sand);
+      font-family:Georgia,serif;
+      font-size:76px;
+      margin-bottom:35px;
+      font-weight:500;
+    }
+
+    .form-section p{
+      text-align:center;
+      font-size:25px;
+      line-height:2;
+      margin-bottom:20px;
+    }
+
+    .form-section .italic{
+      margin-bottom:50px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      border:none;
+      border-bottom:3px solid var(--sand);
+      background:transparent;
+      padding:24px 0;
+      font-size:24px;
+      margin-bottom:42px;
+      outline:none;
+    }
+
+    textarea{
+      height:180px;
+      resize:none;
+    }
+
+    .privacy{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      margin-bottom:40px;
+    }
+
+    .privacy input{
+      width:32px;
+      height:32px;
+      margin-top:6px;
+    }
+
+    .privacy label{
+      font-size:21px;
+      line-height:1.8;
+    }
+
+    .submit-btn{
+      background:var(--sand);
+      color:white;
+      border:none;
+      padding:24px 55px;
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .map{
+      padding:0 42px 70px;
+    }
+
+    .map iframe{
+      width:100%;
+      height:500px;
+      border:0;
+    }
+
+    .partners{
+      padding:90px 40px;
+      text-align:center;
+    }
+
+    .partners h2{
+      font-family:Georgia,serif;
+      font-size:62px;
+      margin-bottom:60px;
+      font-weight:500;
+    }
+
+    .partner{
+      position:relative;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .partner-name{
+      color:var(--sand);
+      font-size:120px;
+      font-weight:900;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--sand);
+      font-size:60px;
+    }
+
+    .left{left:0}
+    .right{right:0}
+
+    .footer{
+      padding:70px 40px 120px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#7fa2c5;
+      font-size:90px;
+      margin-bottom:30px;
+    }
+
+    .footer p{
+      font-size:25px;
+      line-height:2;
+      margin-bottom:40px;
+    }
+
+    .social{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:.1em;
+      margin-bottom:70px;
+    }
+
+    .newsletter h3{
+      font-size:28px;
+      margin-bottom:40px;
+      letter-spacing:.12em;
+    }
+
+    .newsletter input{
+      border-bottom:3px solid #aaa;
+    }
+
+    .newsletter button{
+      width:100%;
+      border:none;
+      background:var(--sand);
+      color:white;
+      padding:28px;
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:.08em;
+    }
+
+    .contacts-footer{
+      margin-top:90px;
+    }
+
+    .contacts-footer h3{
+      font-size:28px;
+      margin-bottom:40px;
+      letter-spacing:.12em;
+    }
+
+    .contacts-footer p{
+      font-size:24px;
+      line-height:2;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <a class="logo" href="index.html">KALEKORA</a>
+<section class="top-header">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="spiaggia.html">Spiaggia</a>
-    <a href="ristorante.html">Ristorante</a>
-    <a href="eventi.html">Eventi</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
-
-  <a href="#" class="book-btn">BOOK NOW</a>
-</header>
-
-<section class="page-hero contacts">
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <p class="eyebrow">Contatti</p>
-
-    <h1>
-      Restiamo in contatto
-    </h1>
+  <div class="browser-bar">
+    <div>☰</div>
+    <span>macramemonopoli.it</span>
+    <div>↻</div>
   </div>
+
+  <div class="logo-row">
+    <div class="brand">✺</div>
+    <div class="menu">≡</div>
+  </div>
+
 </section>
 
-<section class="section">
+<section class="hero">
+  <h1>CONTATTI</h1>
+</section>
 
-  <div class="contact-box">
+<section class="intro">
 
-    <h2>Informazioni</h2>
+  <h2>CONTATTACI</h2>
+  <h3>per informazioni</h3>
 
-    <p>Email: info@kalekora.it</p>
+  <p>Contattaci se hai bisogno di aiuto.</p>
+  <p>Inviaci una mail o compila il form.</p>
 
-    <p>Telefono: +39 000 000 0000</p>
+  <p class="italic">
+    Riceverai la nostra risposta il prima possibile.
+  </p>
 
-    <p>Instagram: @kalekora</p>
+</section>
 
-    <p>Indirizzo: Salento, Italia</p>
+<section class="info-section">
+
+  <div class="card">
+    <div class="icon">⌂</div>
+
+    <h3>CONTATTI</h3>
+
+    <p>
+      Beach:<br>
+
+      <span class="pink">+39 371 5222337</span><br>
+
+      <span class="pink">+39 080 3003024</span><br><br>
+
+      Ristorante:<br>
+
+      <span class="pink">+39 080 5124891</span><br><br>
+
+      Eventi:<br>
+
+      <span class="pink">+39 371 5353009</span><br><br>
+
+      Eventi Privati:<br>
+
+      <span class="pink">+39 393 3331666</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⌖</div>
+
+    <h3>INDICAZIONI</h3>
+
+    <p>
+      Via Procaccia, 58<br>
+      70043 Monopoli (Ba)<br>
+      - Italy -
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">✉</div>
+
+    <h3>EMAIL</h3>
+
+    <p>
+      info@kalekora.it<br>
+      eventi@kalekora.it
+    </p>
+  </div>
+
+</section>
+
+<section class="map-box">
+
+  <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80">
+
+  <h2>Come raggiungerci:</h2>
+
+  <p>
+    Approfitta del nostro servizio navetta gratuito
+    per raggiungere il lido.
+  </p>
+
+</section>
+
+<section class="form-section">
+
+  <h2>SCRIVICI</h2>
+
+  <p>Se hai qualche domanda non esitare.</p>
+
+  <p class="italic">Inviaci un messaggio.</p>
+
+  <form>
+
+    <input type="text" placeholder="Nome e Cognome">
+
+    <input type="email" placeholder="E-mail">
+
+    <input type="tel" placeholder="Numero di telefono">
+
+    <textarea placeholder="Scrivi il tuo messaggio"></textarea>
+
+    <div class="privacy">
+      <input type="checkbox">
+
+      <label>
+        I tuoi dati personali saranno utilizzati
+        per elaborare la tua richiesta e per altri
+        scopi descritti nella privacy policy.
+      </label>
+    </div>
+
+    <button class="submit-btn">INVIA</button>
+
+  </form>
+
+</section>
+
+<section class="map">
+
+  <iframe
+    src="https://maps.google.com/maps?q=Monopoli&t=&z=13&ie=UTF8&iwloc=&output=embed">
+  </iframe>
+
+</section>
+
+<section class="partners">
+
+  <h2>Partners</h2>
+
+  <div class="partner">
+    <div class="arrow left">‹</div>
+
+    <div class="partner-name">F**K</div>
+
+    <div class="arrow right">›</div>
+  </div>
+
+</section>
+
+<section class="footer">
+
+  <div class="footer-logo">macramè</div>
+
+  <p>
+    vivi un’esperienza coinvolgente e completa per tutta la giornata:
+    spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+  </p>
+
+  <div class="social">
+    SEGUICI SU ● ● ● ●
+  </div>
+
+  <div class="newsletter">
+
+    <h3>NEWSLETTER</h3>
+
+    <input type="email" placeholder="Indirizzo e-mail">
+
+    <button>ISCRIVITI</button>
+
+  </div>
+
+  <div class="contacts-footer">
+
+    <h3>INDIRIZZO E CONTATTI</h3>
+
+    <p>
+      Via Procaccia, 58<br>
+      70043 Monopoli (Ba) - Italy<br>
+
+      Beach: +39 371 5222337<br>
+      080 3003024<br>
+
+      Ristorante: 080 5124891<br>
+
+      Eventi: +39 371 5353009<br>
+
+      Eventi Privati: +39 3933331666<br>
+
+      info@kalekora.it
+    </p>
 
   </div>
 
