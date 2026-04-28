@@ -904,65 +904,39 @@ img {
   }
 }
 
-/* BLOCCA EFFETTO SITO PICCOLO DOPO ZOOM */
-html,
-body {
-  width: 100% !important;
-  min-width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  zoom: 1 !important;
+  overflow-x: hidden;
+  min-width: 320px;
 }
 
-main,
-section,
-header,
-.mobile-header,
-.hero-macrame,
-.welcome-section,
-.coast-card,
-.photo-stack,
-.experience-section,
-.shuttle-section,
-.pickup-section,
-.restaurant-home,
-.menu-section,
-.lounge-section,
-.quote-section,
-.gallery-home,
-.partners-section,
-.newsletter-section,
-.home-footer {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
+@media (max-width: 768px) {
 
-.hero-macrame {
-  min-height: 100svh !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
+  .mobile-header,
+  .hero-macrame,
+  .welcome-section,
+  .photo-stack,
+  .experience-section,
+  .shuttle-section,
+  .pickup-section,
+  .restaurant-home,
+  .menu-section,
+  .gallery-home,
+  .partners-section,
+  .newsletter-section,
+  .home-footer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
-.hero-title {
-  width: 100% !important;
-  max-width: none !important;
-}
+  .coast-card {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
 
-.big-book {
-  width: 100% !important;
-  max-width: 100% !important;
 }
-
-.arch-image,
-.photo-stack img,
-.restaurant-home img,
-.gallery-home img {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
