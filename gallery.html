@@ -4,56 +4,364 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Kalekora</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root{
+      --sand:#bca98d;
+      --cream:#f3f3ef;
+      --black:#1f1f1f;
+      --white:#ffffff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      background:var(--cream);
+      color:var(--black);
+      font-family:Arial,sans-serif;
+    }
+
+    .top-header{
+      background:var(--sand);
+      padding:34px 34px 32px;
+    }
+
+    .browser-bar{
+      background:#f1ddb8;
+      border-radius:999px;
+      padding:18px 28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 10px 28px rgba(0,0,0,.13), inset 0 2px 0 rgba(255,255,255,.45);
+      font-size:28px;
+      color:#000;
+    }
+
+    .browser-bar span{
+      font-size:21px;
+      font-weight:700;
+    }
+
+    .logo-row{
+      margin-top:46px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand{
+      color:var(--sand);
+      font-family:Georgia,serif;
+      font-style:italic;
+      font-size:64px;
+      line-height:.8;
+    }
+
+    .brand small{
+      display:block;
+      font-family:Arial,sans-serif;
+      font-style:normal;
+      font-size:11px;
+      letter-spacing:.22em;
+      margin-left:28px;
+      margin-top:16px;
+    }
+
+    .menu{
+      width:72px;
+      height:72px;
+      background:rgba(188,169,141,.16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--sand);
+      font-size:42px;
+      font-weight:700;
+    }
+
+    .hero{
+      height:330px;
+      background:
+        linear-gradient(rgba(0,0,0,.24),rgba(0,0,0,.24)),
+        url("https://images.unsplash.com/photo-1530908295418-a12e326966ba?auto=format&fit=crop&w=1400&q=80")
+        center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .hero h1{
+      color:white;
+      font-family:Georgia,serif;
+      font-size:66px;
+      font-weight:500;
+      letter-spacing:.05em;
+    }
+
+    .filters{
+      padding:160px 42px 90px;
+      display:grid;
+      grid-template-columns:1fr 1.4fr;
+      gap:20px;
+    }
+
+    .filter-btn{
+      border:3px solid var(--sand);
+      background:transparent;
+      color:var(--sand);
+      padding:28px 16px;
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:.1em;
+    }
+
+    .filter-btn.active{
+      background:var(--sand);
+      color:white;
+    }
+
+    .filter-btn.wide{
+      grid-column:span 1;
+    }
+
+    .gallery-grid{
+      padding:0 22px 90px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .promo{
+      margin-top:30px;
+      height:430px;
+      background:
+        linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.18)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80")
+        center/cover no-repeat;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:35px;
+    }
+
+    .promo h2{
+      font-family:Georgia,serif;
+      color:white;
+      font-size:52px;
+      line-height:1.1;
+      font-weight:500;
+      margin-bottom:32px;
+    }
+
+    .promo a{
+      background:white;
+      color:#000;
+      text-decoration:none;
+      padding:22px 42px;
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .partners{
+      padding:95px 40px 70px;
+      text-align:center;
+    }
+
+    .partners h2{
+      font-family:Georgia,serif;
+      font-size:58px;
+      font-weight:500;
+      margin-bottom:70px;
+    }
+
+    .partner{
+      position:relative;
+      min-height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .partner-name{
+      color:var(--sand);
+      font-size:90px;
+      font-weight:900;
+      letter-spacing:.03em;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--sand);
+      font-size:64px;
+    }
+
+    .arrow.left{left:0}
+    .arrow.right{right:0}
+
+    .footer{
+      padding:70px 40px 120px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#7fa2c5;
+      font-family:Georgia,serif;
+      font-style:italic;
+      font-size:78px;
+      margin-bottom:26px;
+    }
+
+    .footer-text{
+      font-size:24px;
+      line-height:1.9;
+      letter-spacing:.06em;
+      margin-bottom:42px;
+    }
+
+    .social{
+      font-size:24px;
+      font-weight:800;
+      letter-spacing:.1em;
+      margin-bottom:88px;
+    }
+
+    .newsletter h3,
+    .contacts h3{
+      font-size:25px;
+      letter-spacing:.12em;
+      margin-bottom:36px;
+    }
+
+    input{
+      width:100%;
+      border:none;
+      border-bottom:3px solid #aaa;
+      background:transparent;
+      padding:20px 0;
+      font-size:24px;
+      margin-bottom:28px;
+    }
+
+    .subscribe{
+      width:100%;
+      border:none;
+      background:var(--sand);
+      color:white;
+      padding:26px;
+      font-size:26px;
+      font-weight:800;
+      letter-spacing:.1em;
+    }
+
+    .contacts{
+      margin-top:90px;
+    }
+
+    .contacts p{
+      font-size:23px;
+      line-height:1.8;
+      letter-spacing:.05em;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <a class="logo" href="index.html">KALEKORA</a>
+<section class="top-header">
+  <div class="browser-bar">
+    <div>☰</div>
+    <span>macramemonopoli.it</span>
+    <div>↻</div>
+  </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="spiaggia.html">Spiaggia</a>
-    <a href="ristorante.html">Ristorante</a>
-    <a href="eventi.html">Eventi</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
+  <div class="logo-row">
+    <div class="brand">
+      macramè
+      <small>APULIAN BEACH EXPERIENCE</small>
+    </div>
 
-  <a href="#" class="book-btn">BOOK NOW</a>
-</header>
-
-<section class="page-hero gallery-page">
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <p class="eyebrow">Gallery</p>
-
-    <h1>
-      Summer vibes
-    </h1>
+    <div class="menu">≡</div>
   </div>
 </section>
 
-<section class="section">
+<section class="hero">
+  <h1>FOTO</h1>
+</section>
 
-  <div class="gallery-grid">
+<section class="filters">
+  <button class="filter-btn active">ALL</button>
+  <button class="filter-btn">SPIAGGIA</button>
+  <button class="filter-btn">RISTORANTE</button>
+  <button class="filter-btn">EVENTI</button>
+</section>
 
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+<section class="gallery-grid">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80">
+  <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80">
+  <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80">
+</section>
 
-    <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80">
+<section class="promo">
+  <h2>
+    TRASCORRI LE TUE<br>
+    GIORNATE<br>
+    <span>in relax e benessere</span>
+  </h2>
 
-    <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=900&q=80">
+  <a href="#">CAMPAGNA ABBONAMENTI 2025</a>
+</section>
 
-    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80">
+<section class="partners">
+  <h2>Partners</h2>
 
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80">
+  <div class="partner">
+    <div class="arrow left">‹</div>
+    <div class="partner-name">F**K</div>
+    <div class="arrow right">›</div>
+  </div>
+</section>
 
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80">
+<section class="footer">
+  <div class="footer-logo">macramè</div>
 
+  <p class="footer-text">
+    vivi un’esperienza coinvolgente e completa per tutta la giornata:
+    spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+  </p>
+
+  <div class="social">SEGUICI SU ● ● ● ●</div>
+
+  <div class="newsletter">
+    <h3>NEWSLETTER</h3>
+    <input type="email" placeholder="Indirizzo e-mail">
+    <button class="subscribe">ISCRIVITI</button>
   </div>
 
+  <div class="contacts">
+    <h3>INDIRIZZO E CONTATTI</h3>
+    <p>
+      Via Procaccia, 58<br>
+      70043 Monopoli (Ba) - Italy<br>
+      Beach: +39 371 5222337<br>
+      080 3003024
+    </p>
+  </div>
 </section>
 
 </body>
