@@ -3,47 +3,385 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spiaggia | Kalekora</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Spiaggia | Macramè</title>
+
+  <style>
+    :root {
+      --sand: #bca98d;
+      --cream: #f4f4ef;
+      --black: #1e1e1e;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+    }
+
+    .top-bar {
+      background: var(--sand);
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 46px 34px 28px;
+    }
+
+    .logo-mark {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+    }
+
+    .menu-btn {
+      width: 72px;
+      height: 72px;
+      border: none;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    .hero-img {
+      height: 170px;
+      background:
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.20)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img h1 {
+      margin: 0;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 46px;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+    }
+
+    .intro {
+      padding: 120px 28px 90px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .intro h2 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .intro p {
+      margin: 12px 0 0;
+      font-family: Georgia, serif;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .image-block {
+      padding: 0 22px 80px;
+      background: var(--cream);
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .wellness {
+      padding: 55px 22px 80px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .wellness h2 {
+      font-family: Georgia, serif;
+      font-size: 44px;
+      line-height: 1.05;
+      font-weight: 500;
+      margin: 0 0 55px;
+    }
+
+    .wellness h2 span {
+      display: block;
+      font-size: 38px;
+      font-weight: 400;
+    }
+
+    .wellness img {
+      width: 100%;
+      display: block;
+      margin-bottom: 42px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 80px;
+    }
+
+    .dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #e4ddd2;
+    }
+
+    .dots span.active {
+      background: var(--sand);
+    }
+
+    .services {
+      padding: 60px 26px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .service {
+      margin-bottom: 90px;
+    }
+
+    .service-icon {
+      font-size: 76px;
+      color: var(--sand);
+      margin-bottom: 24px;
+    }
+
+    .service h3 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+
+    .service p {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      line-height: 1.35;
+    }
+
+    .lunch-card {
+      margin: 40px 22px 0;
+      background: var(--sand);
+      color: white;
+      text-align: center;
+      padding: 70px 24px;
+    }
+
+    .lunch-card h2 {
+      margin: 0 0 36px;
+      font-family: Georgia, serif;
+      font-size: 44px;
+      line-height: 1.12;
+      font-weight: 500;
+    }
+
+    .lunch-card h2 span {
+      display: block;
+      font-size: 40px;
+      font-weight: 400;
+    }
+
+    .lunch-card p {
+      font-size: 24px;
+      line-height: 2;
+      letter-spacing: 0.08em;
+      margin: 0 0 38px;
+    }
+
+    .menu-link {
+      display: inline-block;
+      border: 3px solid white;
+      color: white;
+      text-decoration: none;
+      padding: 18px 42px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 20px;
+    }
+
+    .food-img {
+      padding: 0 22px 80px;
+      background: var(--cream);
+    }
+
+    .food-img img {
+      width: 100%;
+      display: block;
+    }
+
+    .footer {
+      background: var(--cream);
+      text-align: center;
+      padding: 60px 28px 90px;
+    }
+
+    .footer-logo {
+      font-family: Georgia, serif;
+      font-size: 54px;
+      color: #7fa2c5;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .footer p {
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+      margin: 0 0 42px;
+    }
+
+    .social {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 70px;
+    }
+
+    .newsletter h3,
+    .contacts h3 {
+      font-size: 24px;
+      letter-spacing: 0.14em;
+      margin-bottom: 34px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #aaa;
+      background: transparent;
+      padding: 16px 0;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .newsletter button {
+      width: 100%;
+      border: none;
+      background: var(--sand);
+      color: white;
+      padding: 22px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .contacts {
+      margin-top: 90px;
+    }
+
+    .contacts p {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <a class="logo" href="index.html">KALEKORA</a>
+  <header class="top-bar">
+    <img class="logo-mark" src="https://dummyimage.com/200x200/bca98d/ffffff&text=◎" alt="Macramè logo">
+    <button class="menu-btn">☰</button>
+  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="spiaggia.html">Spiaggia</a>
-    <a href="ristorante.html">Ristorante</a>
-    <a href="eventi.html">Eventi</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
+  <section class="hero-img">
+    <h1>SPIAGGIA</h1>
+  </section>
 
-  <a href="#" class="book-btn">BOOK NOW</a>
-</header>
+  <section class="intro">
+    <h2>IL NOSTRO BEACH<br>CLUB</h2>
+    <p>esclusivo</p>
+  </section>
 
-<section class="page-hero beach">
-  <div class="overlay"></div>
+  <section class="image-block">
+    <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80" alt="Beach club">
+  </section>
 
-  <div class="hero-content">
-    <p class="eyebrow">Spiaggia</p>
+  <section class="wellness">
+    <h2>VIVI UNA GIORNATA<br><span>di benessere e relax</span></h2>
 
-    <h1>
-      Relax vista mare
-    </h1>
-  </div>
-</section>
+    <img src="https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=1200&q=80" alt="Relax in spiaggia">
 
-<section class="section">
-  <h2>Comfort e benessere</h2>
+    <div class="dots">
+      <span class="active"></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </section>
 
-  <p>
-    Ombrelloni, lettini premium e un’atmosfera elegante
-    pensata per vivere il mare in totale relax.
-  </p>
-</section>
+  <section class="services">
+    <div class="service">
+      <div class="service-icon">☂</div>
+      <h3>LETTINI E OMBRELLONI</h3>
+      <p>Con telo mare incluso</p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🚿</div>
+      <h3>DOCCE</h3>
+      <p>calde e fredde illimitate</p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">⌁</div>
+      <h3>FREE WI-FI</h3>
+      <p>per l'intera area dello stabilimento balneare</p>
+    </div>
+  </section>
+
+  <section class="lunch-card">
+    <h2>GODITI IL<br>PRANZO<br><span>in riva al mare</span></h2>
+
+    <p>
+      Lasciati conquistare dall’atmosfera di relax.<br>
+      Gusta un freschissimo drink, un pranzo leggero in riva al mare
+      e assapora ogni istante dell’estate.
+    </p>
+
+    <a class="menu-link" href="#">SCOPRI IL MENU</a>
+  </section>
+
+  <section class="food-img">
+    <img src="https://images.unsplash.com/photo-1543352634-a1c51d9f1fa7?auto=format&fit=crop&w=1200&q=80" alt="Pranzo in riva al mare">
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">macramè</div>
+
+    <p>
+      vivi un’esperienza coinvolgente e completa per tutta la giornata:
+      spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+    </p>
+
+    <div class="social">SEGUICI SU ● ● ● ●</div>
+
+    <div class="newsletter">
+      <h3>NEWSLETTER</h3>
+      <input type="email" placeholder="Indirizzo e-mail">
+      <button>ISCRIVITI</button>
+    </div>
+
+    <div class="contacts">
+      <h3>INDIRIZZO E CONTATTI</h3>
+      <p>Via Procaccia, 58<br>70043 Monopoli (Ba) - Italy</p>
+    </div>
+  </footer>
 
 </body>
 </html>
