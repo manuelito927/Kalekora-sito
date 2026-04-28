@@ -436,32 +436,6 @@ a {
 
 /* SMALL PHONE */
 
-@media (max-width: 480px) {
-  .top-icons {
-    gap: 16px;
-  }
-
-  .hero-title h1 {
-    font-size: 64px;
-  }
-
-  .big-book {
-    font-size: 18px;
-  }
-
-  .welcome-text p,
-  .coast-content p,
-  .experience-item p,
-  .shuttle-content p {
-    letter-spacing: 2px;
-  }
-
-  .floating-book {
-    left: 18px;
-    right: 18px;
-    text-align: center;
-  }
-}
 
 .pickup-section {
   background: #f3f4ee;
