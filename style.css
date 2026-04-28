@@ -53,12 +53,20 @@ a {
 }
 
 .menu-btn {
-  background: rgba(255,255,255,.12);
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.12);
   color: white;
-  border: 0;
-  width: clamp(58px, 9vw, 76px);
-  height: clamp(58px, 9vw, 76px);
-  font-size: clamp(32px, 5vw, 44px);
+  font-size: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
 }
 
 /* HERO */
