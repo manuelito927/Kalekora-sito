@@ -3,47 +3,491 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ristorante | Kalekora</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Ristorante | Macramè</title>
+
+  <style>
+    :root {
+      --sand: #bca98d;
+      --cream: #f4f4ef;
+      --black: #1e1e1e;
+      --white: #ffffff;
+      --blue-card: #b7c9d1;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--black);
+      font-family: Arial, sans-serif;
+    }
+
+    .top-social {
+      background: var(--sand);
+      color: white;
+      padding: 34px 42px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 26px;
+      letter-spacing: 18px;
+    }
+
+    .top-social span:last-child {
+      letter-spacing: 0;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .top-bar {
+      background: var(--cream);
+      height: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 42px;
+    }
+
+    .brand {
+      color: var(--sand);
+      font-family: Georgia, serif;
+      font-size: 56px;
+      font-style: italic;
+      line-height: 0.9;
+    }
+
+    .brand small {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      font-style: normal;
+      margin-left: 18px;
+      margin-top: 8px;
+    }
+
+    .menu-btn {
+      width: 72px;
+      height: 72px;
+      border: none;
+      background: rgba(188,169,141,0.12);
+      color: var(--sand);
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    .hero-img {
+      height: 170px;
+      background:
+        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+        url("https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80") center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img h1 {
+      margin: 0;
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 46px;
+      letter-spacing: 0.08em;
+      font-weight: 400;
+    }
+
+    .intro {
+      padding: 125px 26px 75px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .intro h2 {
+      margin: 0 0 52px;
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1.05;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .intro h2 span {
+      display: block;
+      font-size: 39px;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    .intro p {
+      margin: 0 auto;
+      max-width: 720px;
+      font-size: 25px;
+      letter-spacing: 0.08em;
+      line-height: 2.1;
+    }
+
+    .outline-btn {
+      display: inline-block;
+      margin-top: 62px;
+      border: 3px solid var(--sand);
+      color: var(--sand);
+      text-decoration: none;
+      padding: 18px 64px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+    }
+
+    .blue-card {
+      margin: 55px 22px 0;
+      background: var(--blue-card);
+      color: white;
+      text-align: center;
+      padding: 70px 26px;
+    }
+
+    .blue-card h2 {
+      margin: 0 0 42px;
+      font-family: Georgia, serif;
+      font-size: 46px;
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .blue-card h2 span {
+      display: block;
+      font-size: 39px;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    .blue-card p {
+      margin: 0 0 42px;
+      font-size: 23px;
+      line-height: 2.2;
+      letter-spacing: 0.08em;
+    }
+
+    .white-btn {
+      display: inline-block;
+      border: 3px solid white;
+      color: white;
+      text-decoration: none;
+      padding: 18px 42px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+    }
+
+    .image-block {
+      padding: 0 22px 80px;
+      background: var(--cream);
+      position: relative;
+    }
+
+    .image-block img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .arrows {
+      position: absolute;
+      left: 80px;
+      bottom: 120px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .arrows span {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--sand);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .taste {
+      padding: 65px 28px 75px;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .taste h2 {
+      margin: 0 0 48px;
+      font-family: Georgia, serif;
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+
+    .taste h2 span {
+      display: block;
+      font-size: 40px;
+      font-weight: 400;
+    }
+
+    .taste p {
+      margin: 0 auto 40px;
+      max-width: 700px;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      line-height: 2.15;
+    }
+
+    .review {
+      background: var(--sand);
+      color: white;
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+    }
+
+    .review .quote {
+      font-size: 92px;
+      font-family: Georgia, serif;
+      line-height: 0.7;
+      margin-bottom: 45px;
+    }
+
+    .review p {
+      margin: 0 auto 45px;
+      max-width: 620px;
+      font-size: 23px;
+      letter-spacing: 0.08em;
+      line-height: 2.1;
+    }
+
+    .review strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      margin-bottom: 22px;
+    }
+
+    .partners {
+      background: var(--cream);
+      padding: 70px 28px 90px;
+      text-align: center;
+    }
+
+    .partners h2 {
+      margin: 0 0 70px;
+      font-family: Georgia, serif;
+      font-size: 46px;
+      font-weight: 500;
+    }
+
+    .partner-logo {
+      color: var(--sand);
+      font-size: 82px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      margin-bottom: 120px;
+    }
+
+    .footer-logo {
+      color: #7fa2c5;
+      font-family: Georgia, serif;
+      font-size: 56px;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .footer-text {
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      line-height: 1.9;
+      margin: 0 auto 46px;
+      max-width: 700px;
+    }
+
+    .social {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 76px;
+    }
+
+    .newsletter h3,
+    .contacts h3 {
+      font-size: 24px;
+      letter-spacing: 0.14em;
+      margin-bottom: 34px;
+    }
+
+    .newsletter input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #aaa;
+      background: transparent;
+      padding: 16px 0;
+      font-size: 24px;
+      margin-bottom: 22px;
+    }
+
+    .newsletter button {
+      width: 100%;
+      border: none;
+      background: var(--sand);
+      color: white;
+      padding: 22px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .contacts {
+      margin-top: 88px;
+    }
+
+    .contacts p {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.65;
+      letter-spacing: 0.06em;
+    }
+
+    .map-link {
+      display: block;
+      margin-top: 55px;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <a class="logo" href="index.html">KALEKORA</a>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="spiaggia.html">Spiaggia</a>
-    <a href="ristorante.html">Ristorante</a>
-    <a href="eventi.html">Eventi</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contatti.html">Contatti</a>
-  </nav>
-
-  <a href="#" class="book-btn">BOOK NOW</a>
-</header>
-
-<section class="page-hero restaurant">
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <p class="eyebrow">Ristorante</p>
-
-    <h1>
-      Sapori mediterranei
-    </h1>
+  <div class="top-social">
+    <div>◎ f ▶ ♪ ✉ ☎</div>
+    <span>IT⌄</span>
   </div>
-</section>
 
-<section class="section">
-  <h2>Cucina vista mare</h2>
+  <header class="top-bar">
+    <div class="brand">
+      macramè
+      <small>APULIAN BEACH EXPERIENCE</small>
+    </div>
+    <button class="menu-btn">☰</button>
+  </header>
 
-  <p>
-    Piatti freschi, ingredienti locali e cocktail signature
-    per vivere un’esperienza gastronomica raffinata.
-  </p>
-</section>
+  <section class="hero-img">
+    <h1>RISTORANTE</h1>
+  </section>
+
+  <section class="intro">
+    <h2>SAPORI AUTENTICI<br><span>Mediterranei</span></h2>
+
+    <p>
+      cucina mediterranea, sapori autentici e inimitabili,
+      ingredienti sempre freschi e genuini vi accolgono
+      nell’atmosfera elegante e raffinata del ristorante Macramè.
+    </p>
+
+    <a class="outline-btn" href="#">MENU RISTORANTE</a>
+  </section>
+
+  <section class="blue-card">
+    <h2>CUCINA<br><span>raffinata</span></h2>
+
+    <p>
+      Il nostro ristorante propone una cucina raffinata con ingredienti
+      accuratamente selezionati, accompagnati da un’ampia selezione di vini.
+    </p>
+
+    <p>
+      Un luogo indimenticabile per gustare tante specialità della cucina
+      tipica pugliese, dai profumi del mare a quelli della terra mediterranea.
+    </p>
+
+    <a class="white-btn" href="#">PRENOTA IL TUO TAVOLO</a>
+  </section>
+
+  <section class="image-block">
+    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="Piatto ristorante">
+    <div class="arrows"><span>‹</span><span>›</span></div>
+  </section>
+
+  <section class="taste">
+    <h2>GUSTO<br><span>e qualità</span></h2>
+
+    <p>
+      Un ambiente originale e suggestivo dove poter gustare piatti unici,
+      realizzati secondo l’estro creativo degli chef.
+    </p>
+
+    <p>
+      Nulla è lasciato al caso: il nostro ristorante vanta una ricca proposta
+      di piatti tipici che raccontano l’appartenenza al territorio ponendo una
+      particolare attenzione alla scelta delle materie prime.
+    </p>
+
+    <p>
+      Ciò che contraddistingue il nostro ristorante è la passione per la buona
+      cucina e il mix perfetto di tradizione e innovazione.
+    </p>
+  </section>
+
+  <section class="image-block">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80" alt="Gusto e qualità">
+    <div class="arrows"><span>‹</span><span>›</span></div>
+  </section>
+
+  <section class="review">
+    <div class="quote">”</div>
+
+    <p>
+      Siamo stati invitati da amici per un pranzo vista mare nel ristorante di
+      questo lido. I piatti erano buonissimi e molto ricercati, in una location
+      unica. E’ stata davvero un’esperienza da ripetere, la consiglio!
+    </p>
+
+    <strong>FEDERICA T.</strong>
+    <div>15/06//22</div>
+  </section>
+
+  <section class="partners">
+    <h2>Partners</h2>
+    <div class="partner-logo">F**K</div>
+
+    <div class="footer-logo">macramè</div>
+
+    <p class="footer-text">
+      vivi un’esperienza coinvolgente e completa per tutta la giornata:
+      spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+    </p>
+
+    <div class="social">SEGUICI SU ● ● ● ●</div>
+
+    <div class="newsletter">
+      <h3>NEWSLETTER</h3>
+      <input type="email" placeholder="Indirizzo e-mail">
+      <button>ISCRIVITI</button>
+    </div>
+
+    <div class="contacts">
+      <h3>INDIRIZZO E CONTATTI</h3>
+      <p>
+        Via Procaccia, 58<br>
+        70043 Monopoli (Ba) - Italy<br>
+        Beach: +39 371 5222337<br>
+        080 3003024<br>
+        Ristorante: 080 512 4891<br>
+        Eventi: +39 371 5353009<br>
+        Eventi Privati: +39 3933331666<br>
+        info@macramemonopoli.it
+      </p>
+
+      <span class="map-link">VEDI LA MAPPA</span>
+    </div>
+  </section>
 
 </body>
 </html>
