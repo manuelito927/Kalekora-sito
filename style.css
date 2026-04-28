@@ -365,15 +365,25 @@ a {
 
 .floating-book {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+
+  width: calc(100% - 60px);
+  max-width: 720px;
+
+  background: rgba(255,255,255,0.92);
+  color: #1d1d1d;
+
+  padding: 24px 24px;
+  text-align: center;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 4px;
+
   z-index: 9999;
-  background: white;
-  color: #222;
-  padding: 18px 25px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  box-shadow: 0 10px 35px rgba(0,0,0,.2);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
 }
 
 /* DESKTOP */
