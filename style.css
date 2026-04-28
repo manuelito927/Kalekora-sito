@@ -812,3 +812,94 @@ a {
   text-transform: uppercase;
 }
 
+/* FIX RESPONSIVE FULL WIDTH */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 0;
+}
+
+.mobile-header,
+.hero-macrame,
+.welcome-section,
+.coast-card,
+.photo-stack,
+.experience-section,
+.shuttle-section,
+.pickup-section,
+.restaurant-home,
+.menu-section,
+.lounge-section,
+.quote-section,
+.gallery-home,
+.partners-section,
+.newsletter-section,
+.home-footer {
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-title,
+.welcome-text,
+.coast-content,
+.shuttle-content,
+.pickup-box,
+.quote-section form,
+.menu-list {
+  width: 100%;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-macrame {
+    min-height: 100svh;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .hero-title {
+    width: 100%;
+  }
+
+  .big-book,
+  .simple-book,
+  .border-btn,
+  .menu-buttons a {
+    max-width: 100%;
+  }
+
+  .coast-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .photo-stack,
+  .welcome-section,
+  .pickup-section,
+  .restaurant-home,
+  .menu-section,
+  .gallery-home,
+  .partners-section,
+  .newsletter-section {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .menu-btn {
+    top: 120px;
+    right: 24px;
+  }
+
+  .mobile-menu {
+    width: 100%;
+  }
+}
