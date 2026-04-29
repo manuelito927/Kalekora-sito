@@ -321,9 +321,19 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-setInterval(function() {
-  changeSponsor(1);
-}, 3000);
+let currentLang = "IT";
+
+function toggleLanguage() {
+  const langBtn = document.querySelector(".lang");
+
+  if (currentLang === "IT") {
+    currentLang = "EN";
+    langBtn.textContent = "EN ⌄";
+  } else {
+    currentLang = "IT";
+    langBtn.textContent = "IT ⌄";
+  }
+}
 </script>
 
 </body>
