@@ -1054,7 +1054,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .mobile-header,
   .hero-macrame,
   .welcome-section,
@@ -1072,8 +1071,10 @@ body {
     max-width: 100%;
     overflow-x: hidden;
   }
-  
-  .reveal {
+}
+
+/* EFFETTO COMPARSA SCROLL */
+.reveal {
   opacity: 0;
   transform: translateY(35px);
   transition: opacity 0.85s ease, transform 0.85s ease;
@@ -1083,4 +1084,3 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-  
