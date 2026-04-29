@@ -313,6 +313,22 @@
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
+
+const sponsors = ["Red Bull", "Nike", "Adidas", "Coca-Cola", "Rolex"];
+let sponsorIndex = 0;
+
+function showSponsor() {
+  document.getElementById("sponsorName").textContent = sponsors[sponsorIndex];
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(function() {
+  changeSponsor(1);
+}, 3000);
 </script>
 
 </body>
