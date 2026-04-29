@@ -786,6 +786,27 @@ a {
   margin-bottom: 70px;
 }
 
+.sponsor-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 55px;
+}
+
+.sponsor-slider .partner-logo {
+  margin-bottom: 0;
+}
+
+.sponsor-slider button {
+  background: transparent;
+  border: none;
+  color: #b9a789;
+  font-size: 42px;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
 .mini-logo {
   color: #b9a789;
   font-size: clamp(42px, 8vw, 70px);
