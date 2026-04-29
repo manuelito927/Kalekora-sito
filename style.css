@@ -763,7 +763,10 @@ a {
 }
 
 .partners-section {
-  padding: 58px 28px;
+  padding: 20px 28px 58px;
+  margin-top: -90px;
+  position: relative;
+  z-index: 3;
 }
 
 .partners-section h2 {
