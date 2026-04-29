@@ -472,54 +472,61 @@ a {
 
 .pickup-section {
   background: #f3f4ee;
-  padding: 90px 5vw;
+  padding: 58px 28px;
 }
 
 .pickup-box {
   background: white;
-  max-width: 900px;
-  margin: auto;
+  max-width: 680px;
+  margin: 0 auto;
   text-align: center;
-  padding: 70px 8vw;
+  padding: 48px 28px;
   color: #1d1d1d;
 }
 
 .pickup-intro,
 .pickup-sub {
   color: #b9a789;
-  font-size: clamp(22px, 3.5vw, 34px);
-  line-height: 2;
-  letter-spacing: 4px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(17px, 2.5vw, 24px);
+  line-height: 1.65;
+  letter-spacing: 1.2px;
+}
+
+.pickup-intro {
+  margin-bottom: 22px;
 }
 
 .pickup-box hr {
-  margin: 45px 0;
+  margin: 34px 0;
   border: none;
-  height: 2px;
-  background: #b9a789;
+  height: 1px;
+  background: rgba(185,167,137,.55);
 }
 
 .pickup-box h3 {
-  font-size: clamp(22px, 3vw, 30px);
-  letter-spacing: 4px;
-  margin-bottom: 35px;
+  font-size: clamp(15px, 2.2vw, 20px);
+  letter-spacing: 2.5px;
+  margin-bottom: 24px;
+  font-weight: 700;
 }
 
 .pickup-box p {
-  font-size: clamp(22px, 3.2vw, 32px);
-  line-height: 2;
-  letter-spacing: 4px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(16px, 2.4vw, 22px);
+  line-height: 1.75;
+  letter-spacing: 1.1px;
 }
 
 .border-btn {
   display: inline-block;
-  margin-top: 50px;
-  border: 4px solid #b9a789;
-  padding: 24px 45px;
+  margin-top: 36px;
+  border: 2px solid #b9a789;
+  padding: 16px 30px;
   color: #b9a789;
   font-weight: 700;
-  letter-spacing: 4px;
-  font-size: clamp(20px, 3vw, 30px);
+  letter-spacing: 2.5px;
+  font-size: clamp(13px, 2vw, 18px);
 }
 
 .restaurant-home,
