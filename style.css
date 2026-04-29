@@ -244,7 +244,7 @@ a {
 /* PHOTOS */
 
 .photo-stack {
-  padding: clamp(65px, 10vw, 110px) 7vw;
+  padding: 25px 7vw 35px;
 }
 
 .photo-stack img {
@@ -253,7 +253,11 @@ a {
   max-width: 1150px;
   height: clamp(360px, 65vw, 680px);
   object-fit: cover;
-  margin: 0 auto clamp(75px, 11vw, 120px);
+  margin: 0 auto 28px;
+}
+
+.photo-stack img:last-child {
+  margin-bottom: 0;
 }
 
 /* EXPERIENCE */
