@@ -169,8 +169,10 @@ a {
 
 /* COAST */
 
+/* COAST */
+
 .coast-card {
-  margin: clamp(65px, 10vw, 110px) 5vw;
+  margin: 70px 0;
   min-height: auto;
   background:
     linear-gradient(rgba(135,160,175,.58), rgba(135,160,175,.58)),
@@ -178,58 +180,64 @@ a {
     center/cover;
   color: white;
   text-align: center;
-  padding: clamp(70px, 10vw, 110px) clamp(26px, 6vw, 70px);
+  padding: 70px 28px;
 }
 
 .coast-content {
-  max-width: 980px;
-  margin: auto;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .coast-content h2 {
-  font-family: Georgia, serif;
-  font-size: clamp(42px, 8vw, 78px);
-  letter-spacing: clamp(2px, .7vw, 6px);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 6.5vw, 70px);
+  letter-spacing: 2px;
   line-height: 1.05;
-  margin-bottom: clamp(45px, 8vw, 75px);
+  margin-bottom: 34px;
+  font-weight: 500;
 }
 
 .coast-content h2 span {
+  display: inline-block;
   font-style: italic;
   font-weight: 300;
+  font-size: clamp(32px, 6vw, 64px);
+  margin-top: 6px;
 }
 
 .coast-content p {
-  font-size: clamp(20px, 3.2vw, 32px);
-  line-height: 2.05;
-  letter-spacing: clamp(2px, .55vw, 5px);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(17px, 2.4vw, 25px);
+  line-height: 1.75;
+  letter-spacing: 1.2px;
 }
 
 .coast-content .bold {
-  font-weight: 700;
-  margin-bottom: clamp(35px, 6vw, 55px);
+  font-weight: 600;
+  margin-bottom: 28px;
 }
 
 .coast-content hr {
-  margin: clamp(55px, 8vw, 85px) 0;
+  margin: 42px 0;
   border: none;
-  height: 2px;
-  background: rgba(255,255,255,.75);
+  height: 1px;
+  background: rgba(255,255,255,.65);
 }
 
 .coast-content h3 {
-  font-size: clamp(24px, 4vw, 38px);
-  letter-spacing: clamp(2px, .7vw, 6px);
-  line-height: 1.7;
-  margin-bottom: clamp(50px, 8vw, 80px);
+  font-family: Arial, sans-serif;
+  font-size: clamp(15px, 2.5vw, 23px);
+  letter-spacing: 2.5px;
+  line-height: 1.55;
+  margin-bottom: 34px;
+  font-weight: 700;
 }
 
 .coast-content a {
-  display: block;
-  text-align: left;
+  display: inline-block;
   color: white;
-  font-size: clamp(20px, 3vw, 30px);
-  letter-spacing: clamp(2px, .6vw, 5px);
+  font-size: clamp(14px, 2.2vw, 22px);
+  letter-spacing: 2.5px;
   font-weight: 700;
 }
 
@@ -916,10 +924,3 @@ body {
     max-width: 100%;
     overflow-x: hidden;
   }
-
-  .coast-card {
-    margin-left: 22px;
-    margin-right: 22px;
-  }
-
-}
