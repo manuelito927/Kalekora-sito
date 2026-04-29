@@ -771,31 +771,29 @@ a {
 
 
 .mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  height: 100vh;
-  background: #b9a789;
+  max-height: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 60px;
-  transition: 0.4s;
-  z-index: 9998;
+  gap: 16px;
+  padding: 0;
+  margin-top: 0;
+  transition: max-height 0.35s ease, margin-top 0.35s ease;
 }
 
 .mobile-menu.active {
-  right: 0;
+  max-height: 360px;
+  margin-top: 30px;
 }
 
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  font-size: 42px;
-  margin: 25px 0;
-  letter-spacing: 4px;
+  font-size: 20px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 /* FIX RESPONSIVE FULL WIDTH */
