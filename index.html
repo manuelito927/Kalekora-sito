@@ -671,6 +671,25 @@ function toggleLanguage() {
     langBtn.textContent = "IT ⌄";
   }
 }
+
+const revealElements = document.querySelectorAll(
+  "section, .arch-image, img, h1, h2, h3, p, a, .experience-item, .pickup-box, .menu-row"
+);
+
+revealElements.forEach(el => el.classList.add("reveal"));
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
 </script>
 
 </body>
