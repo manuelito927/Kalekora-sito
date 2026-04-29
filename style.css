@@ -863,7 +863,10 @@ a {
 }
 
 .newsletter-section {
-  padding: 50px 28px;
+  padding: 0 28px 50px;
+  margin-top: -2cm;
+  position: relative;
+  z-index: 3;
 }
 
 .newsletter-section h3 {
