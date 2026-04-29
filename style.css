@@ -96,17 +96,17 @@ a {
 }
 
 .big-book {
-  display: block;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
+  display: inline-block;
   background: white;
   color: #1c1c1c;
-  padding: 28px 24px;
-  font-size: 24px;
-  line-height: 1.25;
-  letter-spacing: 4px;
+
+  padding: 22px 38px;
+
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 3px;
   font-weight: 800;
+
   text-align: center;
 }
 
