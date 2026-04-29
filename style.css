@@ -90,13 +90,15 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .hero-title h1 {
-  font-family: Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   font-weight: 300;
   color: white;
-  font-size: clamp(58px, 12vw, 120px);
-  line-height: .95;
-  margin-bottom: clamp(90px, 18vw, 180px);
+  font-size: clamp(46px, 9vw, 92px);
+  line-height: 1.02;
+  letter-spacing: 1.2px;
+  margin-bottom: clamp(70px, 14vw, 130px);
+  text-shadow: 0 8px 24px rgba(0,0,0,.22);
 }
 
 .big-book {
