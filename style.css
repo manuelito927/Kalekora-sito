@@ -371,27 +371,25 @@ a {
 
 .floating-book {
   position: fixed;
+  bottom: 20px;
   left: 50%;
-  bottom: 34px;
   transform: translateX(-50%);
 
-  width: calc(100% - 60px);
-  max-width: 720px;
-
-  background: rgba(255,255,255,0.92);
+  background: white;
   color: #1d1d1d;
 
-  padding: 24px 24px;
-  text-align: center;
+  padding: 14px 22px;
 
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  border-radius: 2px;
 
   z-index: 9999;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
-}
 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 /* DESKTOP */
 
 @media (min-width: 1000px) {
