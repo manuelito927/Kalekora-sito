@@ -1072,3 +1072,15 @@ body {
     max-width: 100%;
     overflow-x: hidden;
   }
+  
+  .reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+  
