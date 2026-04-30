@@ -623,6 +623,24 @@ const mobileMenu = document.querySelector(".mobile-menu");
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("active");
 });
+
+const sliderImages = [
+  "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80"
+];
+
+function changeImage(button, direction) {
+  const slider = button.closest(".slider");
+  const img = slider.querySelector(".slider-img");
+
+  let currentIndex = sliderImages.findIndex(src => img.src.includes(src.split("?")[0]));
+  if (currentIndex === -1) currentIndex = 0;
+
+  const nextIndex = (currentIndex + direction + sliderImages.length) % sliderImages.length;
+  img.src = sliderImages[nextIndex];
+}
 </script>
 
 </body>
