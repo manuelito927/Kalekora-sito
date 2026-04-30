@@ -36,9 +36,18 @@
 .logo-mark {
   width: 78px;
   height: 78px;
-  object-fit: contain;
-  display: block;
-  aspect-ratio: 1 / 1;
+  border: 5px solid white;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 5px solid white;
+  border-radius: 50%;
 }
 
 .menu-btn {
