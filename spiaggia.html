@@ -27,11 +27,40 @@
 
 .top-bar {
   background: var(--sand);
-  height: 120px;
+  padding: 22px 28px;
+}
+
+.header-row {
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 28px;
+}
+
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin-top: 0;
+  transition: max-height 0.35s ease, margin-top 0.35s ease;
+}
+
+.mobile-menu.active {
+  max-height: 420px;
+  margin-top: 28px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 .logo-mark {
