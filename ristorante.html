@@ -30,14 +30,44 @@
       font-weight: 700;
     }
 
-    .top-bar {
-      background: var(--cream);
-      height: 225px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 32px 42px;
-    }
+.top-bar {
+  background: var(--sand);
+  padding: 22px 28px;
+}
+
+.header-row {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-mark {
+  width: 62px;
+  height: 62px;
+  border: 5px solid white;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+
+.menu-btn {
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  font-size: 34px;
+  cursor: pointer;
+}
 
     .brand {
       color: var(--sand);
