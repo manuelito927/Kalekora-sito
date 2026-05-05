@@ -1,371 +1,282 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contatti | Kalekora</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti | Macramè</title>
 
-  <style>
-    :root{
-      --sand:#bca98d;
-      --cream:#f2f2ee;
-      --text:#1d1d1d;
-      --pink:#cc4f7a;
-      --line:#b6b6b6;
-    }
+<style>
+:root{
+  --sand:#bca98d;
+  --cream:#f3f3ef;
+  --black:#1f1f1f;
+  --blue:#87a5c8;
+}
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body{
-      background:var(--cream);
-      color:var(--text);
-      font-family:Arial,sans-serif;
-    }
+body{
+  background:var(--cream);
+  font-family:Arial,sans-serif;
+  color:var(--black);
+}
 
-    .top-header{
-      background:var(--sand);
-      padding:34px 34px 40px;
-    }
+/* HEADER */
+.top-header{
+  background:var(--sand);
+  padding:22px 28px;
+}
 
-    .browser-bar{
-      background:#f1ddb8;
-      border-radius:999px;
-      padding:18px 28px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow:0 10px 28px rgba(0,0,0,.13);
-      font-size:28px;
-    }
+.browser-bar{
+  background:#eddcb8;
+  border-radius:999px;
+  padding:18px 28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
 
-    .browser-bar span{
-      font-size:21px;
-      font-weight:700;
-    }
+.logo-row{
+  margin-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .logo-row{
-      margin-top:50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.brand{
+  color:white;
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:46px;
+}
 
-    .brand{
-      color:white;
-      font-size:95px;
-    }
+.menu{
+  width:56px;
+  height:56px;
+  background:rgba(255,255,255,.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:32px;
+  cursor:pointer;
+}
 
-    .menu{
-      width:72px;
-      height:72px;
-      background:rgba(255,255,255,.12);
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:42px;
-    }
+/* MENU */
+.mobile-menu{
+  max-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  padding:0 30px;
+  background:var(--sand);
+  transition:.4s;
+}
 
-    .hero{
-      height:300px;
-      background:
-      linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
-      url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80")
-      center/cover no-repeat;
+.mobile-menu.active{
+  max-height:600px;
+  padding:30px;
+}
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:22px;
+  letter-spacing:.12em;
+  border-bottom:1px solid rgba(255,255,255,.25);
+  padding-bottom:14px;
+}
 
-    .hero h1{
-      color:white;
-      font-family:Georgia,serif;
-      font-size:64px;
-      font-weight:500;
-      letter-spacing:.04em;
-    }
+/* HERO */
+.hero{
+  height:320px;
+  background:
+  linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),
+  url("https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=80")
+  center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .intro{
-      padding:90px 45px;
-      text-align:center;
-    }
+.hero h1{
+  color:white;
+  font-size:64px;
+  font-family:Georgia,serif;
+}
 
-    .intro h2{
-      font-family:Georgia,serif;
-      font-size:74px;
-      line-height:1;
-      margin-bottom:18px;
-      font-weight:500;
-    }
+/* INTRO */
+.intro{
+  padding:70px 28px;
+  text-align:center;
+}
 
-    .intro h3{
-      font-family:Georgia,serif;
-      font-size:42px;
-      font-weight:500;
-      margin-bottom:55px;
-    }
+.intro h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  margin-bottom:10px;
+}
 
-    .intro p{
-      font-size:25px;
-      line-height:2;
-      letter-spacing:.05em;
-    }
+.intro h3{
+  font-family:Georgia,serif;
+  font-size:22px;
+  margin-bottom:25px;
+  font-style:italic;
+}
 
-    .italic{
-      font-style:italic;
-      margin-top:10px;
-    }
+.intro p{
+  font-size:16px;
+  line-height:1.7;
+  color:#5f5a52;
+}
 
-    .info-section{
-      padding:0 42px;
-    }
+/* INFO */
+.info-section{
+  padding:0 28px 70px;
+  max-width:520px;
+  margin:auto;
+}
 
-    .card{
-      border-top:2px solid var(--line);
-      padding:60px 0;
-      text-align:center;
-    }
+.card{
+  border-top:1px solid #ddd;
+  padding:40px 0;
+  text-align:center;
+}
 
-    .icon{
-      font-size:70px;
-      color:var(--sand);
-      margin-bottom:30px;
-    }
+.card h3{
+  font-size:14px;
+  letter-spacing:.2em;
+  margin-bottom:20px;
+}
 
-    .card h3{
-      font-size:28px;
-      letter-spacing:.12em;
-      margin-bottom:40px;
-    }
+.card p{
+  font-size:15px;
+  line-height:1.8;
+}
 
-    .card p{
-      font-size:25px;
-      line-height:2;
-      letter-spacing:.04em;
-    }
+/* MAP BOX */
+.map-box{
+  margin:0 28px 70px;
+  text-align:center;
+}
 
-    .pink{
-      color:var(--pink);
-    }
+.map-box img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  margin-bottom:20px;
+}
 
-    .map-box{
-      margin:60px 42px;
-      background:#f7f7f7;
-      padding:40px;
-    }
+.map-box h2{
+  font-family:Georgia,serif;
+  font-size:28px;
+  margin-bottom:10px;
+}
 
-    .map-box img{
-      width:100%;
-      display:block;
-      margin-bottom:50px;
-    }
+.map-box p{
+  font-size:15px;
+  color:#6d675f;
+}
 
-    .map-box h2{
-      text-align:center;
-      color:var(--sand);
-      font-family:Georgia,serif;
-      font-size:62px;
-      font-weight:500;
-      margin-bottom:40px;
-    }
+/* FORM */
+.form-section{
+  margin:0 28px 70px;
+}
 
-    .map-box p{
-      text-align:center;
-      color:var(--sand);
-      font-size:30px;
-      line-height:2;
-      font-weight:700;
-    }
+.form-section h2{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:32px;
+  margin-bottom:20px;
+}
 
-    .form-section{
-      margin:60px 42px;
-      background:#f8f8f8;
-      padding:70px 45px;
-    }
+input, textarea{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #ccc;
+  padding:12px 0;
+  margin-bottom:18px;
+  background:transparent;
+}
 
-    .form-section h2{
-      text-align:center;
-      color:var(--sand);
-      font-family:Georgia,serif;
-      font-size:76px;
-      margin-bottom:35px;
-      font-weight:500;
-    }
+textarea{
+  height:100px;
+}
 
-    .form-section p{
-      text-align:center;
-      font-size:25px;
-      line-height:2;
-      margin-bottom:20px;
-    }
+.submit-btn{
+  width:100%;
+  background:var(--sand);
+  color:white;
+  padding:14px;
+  border:none;
+  letter-spacing:.2em;
+}
 
-    .form-section .italic{
-      margin-bottom:50px;
-    }
+/* MAP */
+.map iframe{
+  width:100%;
+  height:250px;
+  border:0;
+}
 
-    input,
-    textarea{
-      width:100%;
-      border:none;
-      border-bottom:3px solid var(--sand);
-      background:transparent;
-      padding:24px 0;
-      font-size:24px;
-      margin-bottom:42px;
-      outline:none;
-    }
+/* PARTNERS */
+.partners{
+  padding:70px 28px;
+  text-align:center;
+}
 
-    textarea{
-      height:180px;
-      resize:none;
-    }
+.partners h2{
+  font-family:Georgia,serif;
+  font-size:36px;
+  margin-bottom:30px;
+}
 
-    .privacy{
-      display:flex;
-      gap:20px;
-      align-items:flex-start;
-      margin-bottom:40px;
-    }
+.partner-slider{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+}
 
-    .privacy input{
-      width:32px;
-      height:32px;
-      margin-top:6px;
-    }
+.partner-logo-text{
+  font-size:28px;
+  color:var(--sand);
+  font-weight:700;
+}
 
-    .privacy label{
-      font-size:21px;
-      line-height:1.8;
-    }
+/* FOOTER */
+.footer{
+  padding:50px 28px;
+  text-align:center;
+}
 
-    .submit-btn{
-      background:var(--sand);
-      color:white;
-      border:none;
-      padding:24px 55px;
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:.08em;
-    }
+.footer-logo{
+  font-family:Georgia,serif;
+  font-size:40px;
+  color:var(--blue);
+  margin-bottom:20px;
+}
 
-    .map{
-      padding:0 42px 70px;
-    }
+.footer-text{
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
 
-    .map iframe{
-      width:100%;
-      height:500px;
-      border:0;
-    }
-
-    .partners{
-      padding:90px 40px;
-      text-align:center;
-    }
-
-    .partners h2{
-      font-family:Georgia,serif;
-      font-size:62px;
-      margin-bottom:60px;
-      font-weight:500;
-    }
-
-    .partner{
-      position:relative;
-      min-height:220px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .partner-name{
-      color:var(--sand);
-      font-size:120px;
-      font-weight:900;
-    }
-
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      color:var(--sand);
-      font-size:60px;
-    }
-
-    .left{left:0}
-    .right{right:0}
-
-    .footer{
-      padding:70px 40px 120px;
-      text-align:center;
-    }
-
-    .footer-logo{
-      color:#7fa2c5;
-      font-size:90px;
-      margin-bottom:30px;
-    }
-
-    .footer p{
-      font-size:25px;
-      line-height:2;
-      margin-bottom:40px;
-    }
-
-    .social{
-      font-size:24px;
-      font-weight:700;
-      letter-spacing:.1em;
-      margin-bottom:70px;
-    }
-
-    .newsletter h3{
-      font-size:28px;
-      margin-bottom:40px;
-      letter-spacing:.12em;
-    }
-
-    .newsletter input{
-      border-bottom:3px solid #aaa;
-    }
-
-    .newsletter button{
-      width:100%;
-      border:none;
-      background:var(--sand);
-      color:white;
-      padding:28px;
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:.08em;
-    }
-
-    .contacts-footer{
-      margin-top:90px;
-    }
-
-    .contacts-footer h3{
-      font-size:28px;
-      margin-bottom:40px;
-      letter-spacing:.12em;
-    }
-
-    .contacts-footer p{
-      font-size:24px;
-      line-height:2;
-    }
-  </style>
+.social{
+  font-size:12px;
+  letter-spacing:.2em;
+  margin-bottom:30px;
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <section class="top-header">
-
   <div class="browser-bar">
     <div>☰</div>
     <span>macramemonopoli.it</span>
@@ -373,253 +284,100 @@
   </div>
 
   <div class="logo-row">
-    <div class="brand">✺</div>
-    <div class="menu">≡</div>
+    <div class="brand">macramè</div>
+    <div class="menu">☰</div>
   </div>
-
 </section>
 
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="spiaggia.html">Spiaggia</a>
+  <a href="ristorante.html">Ristorante</a>
+  <a href="eventi.html">Eventi</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contatti.html">Contatti</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <h1>CONTATTI</h1>
 </section>
 
+<!-- INTRO -->
 <section class="intro">
-
-  <h2>CONTATTACI</h2>
+  <h2>Contattaci</h2>
   <h3>per informazioni</h3>
-
-  <p>Contattaci se hai bisogno di aiuto.</p>
-  <p>Inviaci una mail o compila il form.</p>
-
-  <p class="italic">
-    Riceverai la nostra risposta il prima possibile.
-  </p>
-
+  <p>Scrivici per qualsiasi richiesta o informazione.</p>
 </section>
 
+<!-- INFO -->
 <section class="info-section">
-
   <div class="card">
-    <div class="icon">⌂</div>
-
     <h3>CONTATTI</h3>
-
-    <p>
-      Beach:<br>
-
-      <span class="pink">+39 371 5222337</span><br>
-
-      <span class="pink">+39 080 3003024</span><br><br>
-
-      Ristorante:<br>
-
-      <span class="pink">+39 080 5124891</span><br><br>
-
-      Eventi:<br>
-
-      <span class="pink">+39 371 5353009</span><br><br>
-
-      Eventi Privati:<br>
-
-      <span class="pink">+39 393 3331666</span>
-    </p>
+    <p>+39 371 5222337<br>+39 080 3003024</p>
   </div>
 
   <div class="card">
-    <div class="icon">⌖</div>
-
-    <h3>INDICAZIONI</h3>
-
-    <p>
-      Via Procaccia, 58<br>
-      70043 Monopoli (Ba)<br>
-      - Italy -
-    </p>
+    <h3>INDIRIZZO</h3>
+    <p>Via Procaccia, 58<br>Monopoli (BA)</p>
   </div>
 
   <div class="card">
-    <div class="icon">✉</div>
-
     <h3>EMAIL</h3>
-
-    <p>
-      info@kalekora.it<br>
-      eventi@kalekora.it
-    </p>
+    <p>info@macrame.it</p>
   </div>
-
 </section>
 
-<section class="map-box">
-
-  <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80">
-
-  <h2>Come raggiungerci:</h2>
-
-  <p>
-    Approfitta del nostro servizio navetta gratuito
-    per raggiungere il lido.
-  </p>
-
-</section>
-
+<!-- FORM -->
 <section class="form-section">
-
-  <h2>SCRIVICI</h2>
-
-  <p>Se hai qualche domanda non esitare.</p>
-
-  <p class="italic">Inviaci un messaggio.</p>
-
-  <form>
-
-    <input type="text" placeholder="Nome e Cognome">
-
-    <input type="email" placeholder="E-mail">
-
-    <input type="tel" placeholder="Numero di telefono">
-
-    <textarea placeholder="Scrivi il tuo messaggio"></textarea>
-
-    <div class="privacy">
-      <input type="checkbox">
-
-      <label>
-        I tuoi dati personali saranno utilizzati
-        per elaborare la tua richiesta e per altri
-        scopi descritti nella privacy policy.
-      </label>
-    </div>
-
-    <button class="submit-btn">INVIA</button>
-
-  </form>
-
+  <h2>Scrivici</h2>
+  <input type="text" placeholder="Nome">
+  <input type="email" placeholder="Email">
+  <textarea placeholder="Messaggio"></textarea>
+  <button class="submit-btn">INVIA</button>
 </section>
 
+<!-- MAP -->
 <section class="map">
-
-  <iframe
-    src="https://maps.google.com/maps?q=Monopoli&t=&z=13&ie=UTF8&iwloc=&output=embed">
-  </iframe>
-
+  <iframe src="https://maps.google.com/maps?q=Monopoli&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
+<!-- PARTNERS -->
 <section class="partners">
-
   <h2>Partners</h2>
-
-  <div class="partner">
-    <div class="arrow left">‹</div>
-
-    <div class="partner-name">F**K</div>
-
-    <div class="arrow right">›</div>
+  <div class="partner-slider">
+    <button onclick="changeSponsor(-1)">‹</button>
+    <div id="sponsorName" class="partner-logo-text">Red Bull</div>
+    <button onclick="changeSponsor(1)">›</button>
   </div>
-
 </section>
 
+<!-- FOOTER -->
 <section class="footer">
-
   <div class="footer-logo">macramè</div>
-
-  <p>
-    vivi un’esperienza coinvolgente e completa per tutta la giornata:
-    spiaggia, ristorante, lounge bar, aperitivi ed eventi.
+  <p class="footer-text">
+    vivi un’esperienza completa tra spiaggia, ristorante ed eventi.
   </p>
-
-  <div class="social">
-    SEGUICI SU ● ● ● ●
-  </div>
-
-  <div class="newsletter">
-
-    <h3>NEWSLETTER</h3>
-
-    <input type="email" placeholder="Indirizzo e-mail">
-
-    <button>ISCRIVITI</button>
-
-  </div>
-
-  <div class="contacts-footer">
-
-    <h3>INDIRIZZO E CONTATTI</h3>
-
-    <p>
-      Via Procaccia, 58<br>
-      70043 Monopoli (Ba) - Italy<br>
-
-      Beach: +39 371 5222337<br>
-      080 3003024<br>
-
-      Ristorante: 080 5124891<br>
-
-      Eventi: +39 371 5353009<br>
-
-      Eventi Privati: +39 3933331666<br>
-
-      info@kalekora.it
-    </p>
-
-  </div>
-
+  <div class="social">SEGUICI ● ● ● ●</div>
 </section>
-<style>
-  .menu{
-    cursor:pointer;
-    border:2px solid rgba(255,255,255,.45);
-  }
-
-  .mobile-menu{
-    position:fixed;
-    top:210px;
-    left:0;
-    width:100%;
-    background:#bca98d;
-    z-index:99999;
-    display:flex;
-    flex-direction:column;
-    padding:30px;
-    gap:24px;
-    box-shadow:0 18px 35px rgba(0,0,0,.25);
-  }
-
-  .mobile-menu a{
-    color:white;
-    text-decoration:none;
-    font-size:26px;
-    letter-spacing:.08em;
-    border-bottom:1px solid rgba(255,255,255,.25);
-    padding-bottom:16px;
-  }
-</style>
 
 <script>
-  const menuBtn = document.querySelector(".menu");
+const menuBtn = document.querySelector(".menu");
+const mobileMenu = document.querySelector(".mobile-menu");
 
-  menuBtn.addEventListener("click", () => {
-    const existing = document.querySelector(".mobile-menu");
+menuBtn.onclick = () => mobileMenu.classList.toggle("active");
 
-    if(existing){
-      existing.remove();
-      return;
-    }
+const sponsors = ["Red Bull","Moët","Aperol","Campari"];
+let i = 0;
+const el = document.getElementById("sponsorName");
 
-    const menu = document.createElement("div");
-    menu.className = "mobile-menu";
+function changeSponsor(d){
+  i=(i+d+sponsors.length)%sponsors.length;
+  el.textContent=sponsors[i];
+}
 
-    menu.innerHTML = `
-      <a href="index.html">Home</a>
-      <a href="spiaggia.html">Spiaggia</a>
-      <a href="ristorante.html">Ristorante</a>
-      <a href="eventi.html">Eventi</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contatti.html">Contatti</a>
-    `;
-
-    document.body.appendChild(menu);
-  });
+setInterval(()=>changeSponsor(1),3000);
 </script>
+
 </body>
 </html>
