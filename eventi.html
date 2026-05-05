@@ -511,13 +511,13 @@ input{
 <section class="partners">
   <h2>Partners</h2>
 
-  <div class="partner-slider">
-    <button class="partner-arrow">‹</button>
+<div class="partner-slider">
+  <button class="partner-arrow" onclick="changeSponsor(-1)">‹</button>
 
-    <div class="partner-logo-text">Red Bull</div>
+  <div class="partner-logo-text" id="sponsorName">Red Bull</div>
 
-    <button class="partner-arrow">›</button>
-  </div>
+  <button class="partner-arrow" onclick="changeSponsor(1)">›</button>
+</div>
 </section>
 
 <section class="footer">
