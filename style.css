@@ -1103,9 +1103,9 @@ body {
 .private-event{
   width: calc(100% - 56px);
   max-width: 520px;
-  height: 420px;
+  height: 240px;
   margin: 0 auto 72px;
-  padding: 36px 24px;
+  padding: 28px 20px;
 }
 
 .private-content h2{
