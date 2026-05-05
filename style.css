@@ -1087,14 +1087,15 @@ body {
 .music-image{
   padding: 0 28px 72px;
   background: #f3f4ee;
+  text-align: center;
 }
 
 .music-image img{
   width: 100%;
-  max-width: 720px;
-  height: 260px;
+  max-width: 520px;
+  height: 240px;
   object-fit: cover;
-  object-position: center 62%;
+  object-position: center;
   display: block;
   margin: 0 auto;
 }
