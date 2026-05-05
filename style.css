@@ -1235,3 +1235,38 @@ body {
   margin: 0 auto;
   display: block;
 }
+
+.map-box-elegant{
+  margin:0 28px 70px;
+  background:#f7f7f5;
+  padding:30px 20px;
+  text-align:center;
+}
+
+.map-box-elegant img{
+  width:100%;
+  max-width:420px;
+  height:200px;
+  object-fit:cover;
+  margin:0 auto 25px;
+  display:block;
+}
+
+.map-box-elegant h2{
+  font-family:Georgia,serif;
+  font-size:32px;
+  color:var(--sand);
+  margin-bottom:15px;
+}
+
+.map-box-elegant p{
+  font-size:15px;
+  line-height:1.8;
+  color:#8a7f70;
+}
+
+.map-box-elegant .italic{
+  font-style:italic;
+  margin-top:10px;
+}
+
