@@ -471,6 +471,26 @@ function changeSponsor(direction) {
 setInterval(() => {
   changeSponsor(1);
 }, 3000);
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const category = button.textContent.toLowerCase();
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    galleryImages.forEach(img => {
+      img.style.display =
+        category === "all" || img.dataset.category === category
+          ? "block"
+          : "none";
+    });
+  });
+});
+
 </script>
 
 </body>
