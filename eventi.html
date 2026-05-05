@@ -555,6 +555,40 @@ const mobileMenu = document.querySelector(".mobile-menu");
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("active");
 });
+
+const sponsors = [
+  "Red Bull",
+  "Grey Goose",
+  "Moët & Chandon",
+  "Veuve Clicquot",
+  "Belvedere",
+  "Perrier-Jouët",
+  "San Pellegrino",
+  "Fever-Tree",
+  "Aperol",
+  "Campari"
+];
+
+let sponsorIndex = 0;
+const sponsorName = document.getElementById("sponsorName");
+
+function showSponsor() {
+  sponsorName.style.opacity = "0";
+
+  setTimeout(() => {
+    sponsorName.textContent = sponsors[sponsorIndex];
+    sponsorName.style.opacity = "1";
+  }, 250);
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(() => {
+  changeSponsor(1);
+}, 3000);
 </script>
 
 </body>
