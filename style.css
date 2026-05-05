@@ -1155,3 +1155,58 @@ body {
   padding: 40px 28px 72px;
   text-align: center;
 }
+
+
+/* ===== EVENTI PAGE ===== */
+
+.eventi-page .music-image{
+  padding: 0 28px 72px;
+  text-align: center;
+}
+
+.eventi-page .music-image img{
+  width: 100%;
+  max-width: 520px;
+  height: 240px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+.eventi-page .private-event{
+  width: calc(100% - 56px);
+  max-width: 520px;
+  height: 240px;
+  margin: 0 auto 72px;
+  padding: 28px 20px;
+}
+
+.eventi-page .private-content h2{
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+.eventi-page .private-content h2 span{
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+.eventi-page .contact-btn{
+  margin-top: 20px;
+  padding: 14px 30px;
+  font-size: 12px;
+}
+
+.eventi-page .blue-section{
+  padding: 0 28px 72px;
+  text-align: center;
+}
+
+.eventi-page .blue-section img{
+  width: 100%;
+  max-width: 520px;
+  height: 240px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
