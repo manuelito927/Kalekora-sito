@@ -430,39 +430,24 @@ margin-bottom: clamp(18px, 4vw, 32px);
 
 .floating-book {
   position: fixed;
-  bottom: 22px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 
-  background: linear-gradient(180deg, #ffffff 0%, #f1f1ed 100%);
+  background: white;
   color: #1d1d1d;
 
-  padding: 17px 28px;
-  border-radius: 999px;
+  padding: 14px 22px;
 
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 2px;
-  text-align: center;
-  white-space: nowrap;
+
+  border-radius: 2px;
 
   z-index: 9999;
 
-  border: 1px solid rgba(255,255,255,0.9);
-
-  box-shadow:
-    0 14px 0 rgba(122,108,84,0.45),
-    0 22px 34px rgba(0,0,0,0.32),
-    inset 0 2px 4px rgba(255,255,255,0.9),
-    inset 0 -4px 8px rgba(0,0,0,0.10);
-}
-
-.floating-book:active {
-  transform: translateX(-50%) translateY(8px);
-  box-shadow:
-    0 6px 0 rgba(122,108,84,0.45),
-    0 12px 20px rgba(0,0,0,0.24),
-    inset 0 3px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* DESKTOP */
