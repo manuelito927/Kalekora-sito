@@ -675,6 +675,39 @@ function changeImage(button, direction) {
   const nextIndex = (currentIndex + direction + sliderImages.length) % sliderImages.length;
   img.src = sliderImages[nextIndex];
 }
+
+const sponsors = [
+  "Red Bull",
+  "Nike",
+  "Adidas",
+  "Coca-Cola",
+  "Rolex",
+  "Aperol",
+  "Campari",
+  "San Pellegrino"
+];
+
+let sponsorIndex = 0;
+const sponsorName = document.getElementById("sponsorName");
+
+function showSponsor() {
+  sponsorName.style.opacity = "0";
+
+  setTimeout(() => {
+    sponsorName.textContent = sponsors[sponsorIndex];
+    sponsorName.style.opacity = "1";
+  }, 250);
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(() => {
+  changeSponsor(1);
+}, 3000);
+
 </script>
 
 </body>
