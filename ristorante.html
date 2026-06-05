@@ -24,19 +24,21 @@
       font-family: Arial, sans-serif;
     }
 
-.top-bar {
-  background: var(--sand);
-  padding: 22px 28px;
+.mobile-header{
+  background:#b9a789;
+  color:white;
+  padding:14px 5vw 18px;
 }
 
 .top-icons{
   display:flex;
-  gap:14px;
+  gap:clamp(14px, 3vw, 28px);
   align-items:center;
-  margin-bottom:22px;
+  font-size:15px;
+  margin-bottom:clamp(18px, 4vw, 32px);
 }
 
-.top-icons span{
+.top-icons span:not(.lang){
   width:38px;
   height:38px;
   border-radius:50%;
@@ -49,40 +51,33 @@
 
 .top-icons .lang{
   margin-left:auto;
-  font-size:clamp(18px,3vw,25px);
+  font-size:clamp(18px, 3vw, 25px);
   font-weight:bold;
 }
 
-.logo-mark{
-  width:76px;
-  height:76px;
-  border:6px solid white;
-  border-radius:50%;
-  position:relative;
+.brand-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
 }
 
-.logo-mark::after{
-  content:"";
-  position:absolute;
-  inset:13px;
-  border:6px solid white;
-  border-radius:50%;
+.logo-symbol{
+  font-size:clamp(76px, 13vw, 120px);
+  line-height:1;
+  color:white;
 }
-
-.header-row {
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 
 .menu-btn{
   width:48px;
   height:48px;
-  background:rgba(255,255,255,.12);
+  background:rgba(255,255,255,0.12);
   color:white;
   font-size:26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  cursor:pointer;
   margin-top:13px;
 }
 
