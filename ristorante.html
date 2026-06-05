@@ -31,15 +31,20 @@
 
 .top-icons{
   display:flex;
-  gap:clamp(14px,3vw,28px);
+  gap:14px;
   align-items:center;
-  font-size:15px;
-  margin-bottom:clamp(18px,4vw,32px);
+  margin-bottom:22px;
 }
 
-.top-icons span:not(.lang){
+.top-icons span{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:transparent;
   color:white;
-  font-size:24px;
+  display:grid;
+  place-items:center;
+  font-size:15px;
 }
 
 .top-icons .lang{
