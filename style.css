@@ -34,6 +34,17 @@ a {
 margin-bottom: clamp(18px, 4vw, 32px);
 }
 
+.top-icons span:not(.lang) {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #b9a789;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+}
+
 .top-icons .lang {
   margin-left: auto;
   font-size: clamp(18px, 3vw, 25px);
