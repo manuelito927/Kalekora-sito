@@ -223,15 +223,27 @@ textarea{
 }
 
 /* PARTNERS */
+
+
 .partners{
-  padding:70px 28px;
+  padding:70px 28px 55px;
   text-align:center;
 }
 
 .partners h2{
-  font-family:Georgia,serif;
-  font-size:36px;
-  margin-bottom:30px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 300;
+  margin-bottom: 45px;
+  color: #1d1d1d;
+}
+
+.partner-logo-text{
+  color:#b9a789;
+  font-size: clamp(38px, 8vw, 70px);
+  font-weight:800;
+  letter-spacing:1px;
 }
 
 .partner-slider{
@@ -241,11 +253,6 @@ textarea{
   gap:20px;
 }
 
-.partner-logo-text{
-  font-size:28px;
-  color:var(--sand);
-  font-weight:700;
-}
 
 /* FOOTER */
 .footer{
