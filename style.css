@@ -892,15 +892,21 @@ font-weight: 800;
   letter-spacing: 2.5px;
 }
 
-.social-footer span {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #b9a789;
-  color: white;
-  display: grid;
-  place-items: center;
-  font-size: 15px;
+.top-icons a,
+.social-footer a{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:transparent;
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:15px;
+  text-decoration:none;
+}
+
+.social-footer a{
+  background:#b9a789;
 }
 
 .newsletter-section {
