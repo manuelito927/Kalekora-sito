@@ -202,7 +202,8 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-window.addEventListener('load', () => {
+const startReveal = () => {
+
   const revealElements = document.querySelectorAll(
     ".welcome-section, .coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
   );
