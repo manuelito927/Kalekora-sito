@@ -1124,18 +1124,7 @@ body {
 }
 
 /* EFFETTO COMPARSA SCROLL */
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-transition: opacity 0.9s ease, transform 0.9s ease;
 
-}
-
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 .music-image{
   padding: 0 28px 72px;
   background: #f3f4ee;
