@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Beach | Kalecora</title>
+
+  <style>
+    :root {
+      --sand: #bca98d;
+      --cream: #f4f4ef;
+      --black: #1e1e1e;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin-top: 0;
+      transition: max-height 0.35s ease, margin-top 0.35s ease;
+    }
+
+    .mobile-menu.active {
+      max-height: 420px;
+      margin-top: 28px;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .mobile-header{
+      background:#b9a789;
+      color:white;
+      padding:14px 5vw 18px;
+    }
+
+    .top-icons{
+      display:flex;
+      gap:clamp(14px, 3vw, 28px);
+      align-items:center;
+      font-size:15px;
+      margin-bottom:clamp(18px, 4vw, 32px);
+    }
+
+    .top-icons span:not(.lang){
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:transparent;
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:15px;
+    }
+
+    .top-icons .lang{
+      margin-left:auto;
+      font-size:clamp(18px, 3vw, 25px);
+      font-weight:bold;
+      color:white;
+      text-decoration:none;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .logo-symbol{
+      font-size:clamp(76px, 13vw, 120px);
+      line-height:1;
+      color:white;
+    }
+
+    .menu-btn{
+      width:48px;
+      height:48px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      font-size:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      margin-top:13px;
+    }
+
+    .intro{
+      padding: clamp(70px, 10vw, 120px) 5vw;
+      text-align:center;
+    }
+
+    .intro h2{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(34px, 6.5vw, 70px);
+      letter-spacing: 2px;
+      line-height: 1.05;
+      margin-bottom: 34px;
+      font-weight: 500;
+    }
+
+    .intro p{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(32px, 6vw, 64px);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 1.2px;
+      color: #8f7d63;
+      margin-top: 6px;
+    }
+
+    .book-btn{
+      display: inline-block;
+      padding: 16px 28px;
+      margin-top: 38px;
+      background: transparent;
+      color: #7f7566;
+      border: 1.5px solid #b9a789;
+      border-radius: 999px;
+      font-size: clamp(13px, 2.1vw, 20px);
+      letter-spacing: 2.8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration:none;
+    }
+
+    .image-composition{
+      padding: 25px 7vw 35px;
+      gap: 28px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .image-composition img{
+      width: 100%;
+      max-width: 1150px;
+      height: clamp(360px, 65vw, 680px);
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    .services{
+      color:white;
+      text-align:center;
+      padding:55px 28px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(135deg, #bca98d, #ad9a7d);
+      background-size:34px 34px,34px 34px,100% 100%;
+    }
+
+    .service{
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(255,255,255,.42);
+    }
+
+    .service:last-child{ border-bottom:none; }
+
+    .service-icon{
+      font-size: clamp(38px, 7vw, 62px);
+      color: white;
+      margin-bottom: 18px;
+    }
+
+    .service h3{
+      font-size: clamp(17px, 2.8vw, 24px);
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .service p{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(15px, 2.3vw, 22px);
+      line-height: 1.65;
+      letter-spacing: 1.1px;
+      color: white;
+    }
+
+    .footer{
+      background: #f3f4ee;
+      padding: 58px 28px 90px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#b9a789;
+      font-size: clamp(42px, 8vw, 70px);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+
+    .footer-logo span{
+      display:inline-block;
+      margin-top:10px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(30px, 6vw, 56px);
+      font-style: italic;
+      font-weight: 300;
+      color:#7fa3c8;
+    }
+
+    .footer p,
+    .contacts p{
+      max-width: 680px;
+      margin: 0 auto 42px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(16px, 2.4vw, 23px);
+      line-height: 1.75;
+      letter-spacing: 1.1px;
+      color: #333;
+    }
+
+    .social{
+      margin-bottom:65px;
+      font-size:13px;
+      letter-spacing:.28em;
+      font-weight:600;
+      color:#8f7d63;
+    }
+
+    .social span{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#b9a789;
+      color:white;
+      display:inline-grid;
+      place-items:center;
+      font-size:15px;
+      margin:0 6px;
+    }
+
+    .top-icons a,
+    .social a{
+      text-decoration:none;
+      color:inherit;
+      display:inline-grid;
+    }
+
+    .contacts h3{
+      font-size: clamp(16px, 2.5vw, 22px);
+      letter-spacing: 3px;
+      margin: 45px 0 28px;
+      font-weight: 700;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="mobile-header">
+
+<div class="top-icons">
+
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-instagram"></i></span>
+  </a>
+
+  <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-facebook-f"></i></span>
+  </a>
+
+  <a class="lang" href="../spiaggia.html">EN ⌄</a>
+
+</div>
+
+<div class="brand-row">
+  <div class="logo-symbol">◎</div>
+  <button class="menu-btn" type="button">☰</button>
+</div>
+
+<nav class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="beach.html">Beach</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
+
+</header>
+
+<section class="intro">
+  <h2>OUR BEACH<br>CLUB</h2>
+  <p>exclusive</p>
+
+  <a href="https://new-widget.spiagge.it/stabilimenti-balneari/prenotazione/it-le-73026-lido-kale-cora-2/insertPeriod?yb_booking_license=it-le-73026-lido-kale-cora-2"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="book-btn">
+    BOOK YOUR BEACH SPOT
+  </a>
+</section>
+
+<section class="image-composition">
+  <img src="../spiaggia.jpg" alt="Kalekora Beach">
+  <img src="../ombrellonielettini.jpg" alt="Umbrellas and loungers Kalekora">
+</section>
+
+<section class="services">
+  <div class="service">
+    <div class="service-icon">☂</div>
+    <h3>SUNBEDS AND UMBRELLAS</h3>
+    <p>Beach towel included</p>
+  </div>
+
+  <div class="service">
+    <div class="service-icon">🚿</div>
+    <h3>SHOWERS</h3>
+    <p>unlimited hot and cold showers</p>
+  </div>
+
+  <div class="service">
+    <div class="service-icon">⌁</div>
+    <h3>FREE WI-FI</h3>
+    <p>throughout the beach club area</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">◎<br><span>KALECORA</span></div>
+
+  <p>
+    enjoy a complete and immersive experience all day long:
+    beach, restaurant, lounge bar, aperitifs and events.
+  </p>
+
+  <div class="social">
+    <strong>FOLLOW US</strong><br><br>
+
+    <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-instagram"></i></span>
+    </a>
+
+    <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-facebook-f"></i></span>
+    </a>
+  </div>
+
+  <div class="contacts">
+    <h3>ADDRESS AND CONTACTS</h3>
+
+    <p>
+      SP366, 5<br>
+      73026 Melendugno LE<br>
+      Phone: 3509274070
+    </p>
+
+    <br>
+
+    <a href="https://maps.google.com/?q=Kal%C3%A8+Cora+Melendugno"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="color:#8f7d63;text-decoration:none;border-bottom:1px solid #bca98d;padding-bottom:4px;font-size:14px;letter-spacing:.18em;">
+      VIEW MAP
+    </a>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .image-composition img, .services, .footer"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
