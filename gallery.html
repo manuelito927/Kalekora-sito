@@ -410,6 +410,17 @@
   transform: translateY(0);
 }
 
+    .gallery-grid img {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.3s ease, transform 1.3s ease;
+}
+
+.gallery-grid img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
     
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
