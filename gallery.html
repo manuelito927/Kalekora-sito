@@ -546,16 +546,8 @@ menuBtn.addEventListener("click", () => {
 });
 
 const sponsors = [
-  "Red Bull",
-  "Grey Goose",
-  "Moët & Chandon",
-  "Veuve Clicquot",
-  "Belvedere",
-  "Perrier-Jouët",
-  "San Pellegrino",
-  "Fever-Tree",
-  "Aperol",
-  "Campari"
+  "Red Bull","Grey Goose","Moët & Chandon","Veuve Clicquot",
+  "Belvedere","Perrier-Jouët","San Pellegrino","Fever-Tree","Aperol","Campari"
 ];
 
 let sponsorIndex = 0;
@@ -563,7 +555,6 @@ const sponsorName = document.getElementById("sponsorName");
 
 function showSponsor() {
   sponsorName.style.opacity = "0";
-
   setTimeout(() => {
     sponsorName.textContent = sponsors[sponsorIndex];
     sponsorName.style.opacity = "1";
@@ -575,9 +566,7 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-setInterval(() => {
-  changeSponsor(1);
-}, 3000);
+setInterval(() => { changeSponsor(1); }, 3000);
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const galleryImages = document.querySelectorAll(".gallery-grid img");
@@ -585,18 +574,36 @@ const galleryImages = document.querySelectorAll(".gallery-grid img");
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
     const category = button.textContent.toLowerCase();
-
     filterButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-
     galleryImages.forEach(img => {
-      img.style.display =
-img.dataset.category === category
-          ? "block"
-          : "none";
+      img.style.display = img.dataset.category === category ? "block" : "none";
     });
   });
 });
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".gallery-title, .filters, .gallery-grid, .partners, .footer"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+
 
 </script>
 
