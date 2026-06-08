@@ -1127,7 +1127,8 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(35px);
-  transition: opacity 1.3s ease, transform 1.3s ease;
+transition: opacity 0.9s ease, transform 0.9s ease;
+
 }
 
 
