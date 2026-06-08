@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Kalecora</title>
+
+  <style>
+    :root{
+      --sand:#bca98d;
+      --cream:#f3f3ef;
+      --black:#1f1f1f;
+      --white:#ffffff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      background:var(--cream);
+      color:var(--black);
+      font-family:Arial,sans-serif;
+    }
+
+    .mobile-header{
+      background:#b9a789;
+      color:white;
+      padding:14px 5vw 18px;
+    }
+
+    .top-icons{
+      display:flex;
+      gap:clamp(14px, 3vw, 28px);
+      align-items:center;
+      font-size:15px;
+      margin-bottom:clamp(18px, 4vw, 32px);
+    }
+
+    .top-icons span:not(.lang){
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:transparent;
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:15px;
+    }
+
+    .top-icons .lang{
+      margin-left:auto;
+      font-size:clamp(18px, 3vw, 25px);
+      font-weight:bold;
+      color:white;
+      text-decoration:none;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .logo-symbol{
+      font-size:clamp(76px, 13vw, 120px);
+      line-height:1;
+      color:white;
+    }
+
+    .menu-btn{
+      width:48px;
+      height:48px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      font-size:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      margin-top:13px;
+    }
+
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin-top: 0;
+      transition: max-height 0.35s ease, margin-top 0.35s ease;
+    }
+
+    .mobile-menu.active {
+      max-height: 650px;
+      margin-top: 30px;
+      padding-bottom: 24px;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .filters{
+      padding:25px 28px 35px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      max-width:520px;
+      margin:0 auto;
+    }
+
+    .filters .filter-btn:last-child{
+      grid-column:1 / 3;
+      justify-self:center;
+      width:48%;
+    }
+
+    .filter-btn{
+      border:1px solid var(--sand);
+      background:transparent;
+      color:var(--sand);
+      padding:15px 12px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.18em;
+    }
+
+    .filter-btn.active{
+      background:var(--sand);
+      color:white;
+    }
+
+    .gallery-grid{
+      padding:0 28px 72px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      max-width:560px;
+      margin:0 auto;
+    }
+
+    .gallery-grid img{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .partners{
+      padding:70px 28px 55px;
+      text-align:center;
+    }
+
+    .partners h2{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: clamp(34px, 6vw, 58px);
+      font-weight: 300;
+      margin-bottom: 45px;
+      color: #1d1d1d;
+    }
+
+    .partner-logo-text{
+      color:#b9a789;
+      font-size: clamp(38px, 8vw, 70px);
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .partner-slider{
+      max-width:520px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:34px;
+    }
+
+    .partner-arrow{
+      border:none;
+      background:transparent;
+      color:var(--sand);
+      font-size:42px;
+      line-height:1;
+      cursor:pointer;
+      opacity:.75;
+    }
+
+    .footer{
+      padding:48px 28px 90px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#b9a789;
+      font-size: clamp(42px, 8vw, 70px);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+
+    .footer-logo span{
+      display:inline-block;
+      margin-top:10px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(30px, 6vw, 56px);
+      font-style: italic;
+      font-weight: 300;
+      color:#7fa3c8;
+    }
+
+    .footer-text{
+      max-width: 680px;
+      margin: 0 auto 42px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(16px, 2.4vw, 23px);
+      line-height: 1.75;
+      letter-spacing: 1.1px;
+      color: #333;
+    }
+
+    .social{
+      color:#1f1f1f;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.18em;
+      margin-bottom:46px;
+    }
+
+    .social span{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#b9a789;
+      color:white;
+      display:inline-grid;
+      place-items:center;
+      font-size:15px;
+      margin:0 7px;
+      letter-spacing:0;
+    }
+
+    .contacts{
+      margin-top:40px;
+    }
+
+    .contacts h3{
+      font-size:15px;
+      letter-spacing:.18em;
+      margin-bottom:24px;
+    }
+
+    .contacts p{
+      max-width:420px;
+      margin:0 auto;
+      font-family:Georgia,serif;
+      font-size:14px;
+      line-height:1.8;
+      letter-spacing:.05em;
+      color:#4f4a43;
+    }
+
+    .gallery-title{
+      padding:55px 28px 20px;
+      text-align:center;
+    }
+
+    .gallery-title h1{
+      font-family: Arial, sans-serif;
+      font-size: clamp(34px, 6.5vw, 70px);
+      letter-spacing: 3px;
+      line-height: 1.05;
+      font-weight: 500;
+      font-style: normal;
+      color: #2a2a2a;
+      text-transform: uppercase;
+    }
+
+    .top-icons a,
+    .social a{
+      text-decoration:none;
+      color:inherit;
+      display:inline-grid;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-grid img {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .gallery-grid img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header class="mobile-header">
+
+<div class="top-icons">
+
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-instagram"></i></span>
+  </a>
+
+  <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-facebook-f"></i></span>
+  </a>
+
+  <a class="lang" href="../gallery.html">EN ⌄</a>
+
+</div>
+
+<div class="brand-row">
+  <div class="logo-symbol">◎</div>
+  <button class="menu-btn" type="button">☰</button>
+</div>
+
+<nav class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="beach.html">Beach</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
+
+</header>
+
+<section class="gallery-title">
+  <h1>GALLERY</h1>
+</section>
+
+<section class="filters">
+  <button class="filter-btn active">BEACH</button>
+  <button class="filter-btn">RESTAURANT</button>
+  <button class="filter-btn">EVENTS</button>
+</section>
+
+<section class="gallery-grid">
+  <img data-category="beach" src="../ombrelloni.jpg" alt="Kalecora umbrellas">
+  <img data-category="beach" src="../ombrellonielettini.jpg" alt="Kalecora umbrellas and sunbeds">
+  <img data-category="beach" src="../specchio.jpg" alt="Kalecora mirror">
+  <img data-category="beach" src="../spiaggia.jpg" alt="Kalecora beach">
+  <img data-category="beach" src="../spiaggialido.jpg" alt="Kalecora beach club">
+
+  <img data-category="events" src="../allen.jpg" alt="Kalecora event">
+  <img data-category="events" src="../discoteca.jpg" alt="Kalecora party">
+  <img data-category="events" src="../tatuata.jpg" alt="Kalecora event">
+  <img data-category="events" src="../riccia.jpg" alt="Kalecora event">
+</section>
+
+<section class="partners">
+  <h2>Partners</h2>
+
+  <div class="partner-slider">
+    <button class="partner-arrow" onclick="changeSponsor(-1)">‹</button>
+    <div class="partner-logo-text" id="sponsorName">Red Bull</div>
+    <button class="partner-arrow" onclick="changeSponsor(1)">›</button>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-logo">◎<br><span>KALECORA</span></div>
+
+  <p class="footer-text">
+    enjoy a complete and immersive experience all day long:
+    beach, restaurant, lounge bar, aperitifs and events.
+  </p>
+
+  <div class="social">
+    <strong>FOLLOW US</strong><br><br>
+
+    <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-instagram"></i></span>
+    </a>
+
+    <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-facebook-f"></i></span>
+    </a>
+  </div>
+
+  <div class="contacts">
+    <h3>ADDRESS AND CONTACTS</h3>
+
+    <p>
+      SP366, 5<br>
+      73026 Melendugno LE<br>
+      Phone: 3509274070
+    </p>
+
+    <a href="https://maps.google.com/?q=Kal%C3%A8+Cora+Melendugno"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="
+         display:inline-block;
+         margin-top:25px;
+         color:#8f7d63;
+         font-size:12px;
+         font-weight:600;
+         letter-spacing:.26em;
+         text-decoration:none;
+         border-bottom:1px solid #bca98d;
+         padding-bottom:6px;
+       ">
+      VIEW MAP
+    </a>
+  </div>
+</section>
+
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+
+const sponsors = [
+  "Red Bull","Grey Goose","Moët & Chandon","Veuve Clicquot",
+  "Belvedere","Perrier-Jouët","San Pellegrino","Fever-Tree","Aperol","Campari"
+];
+
+let sponsorIndex = 0;
+const sponsorName = document.getElementById("sponsorName");
+
+function showSponsor() {
+  sponsorName.style.opacity = "0";
+  setTimeout(() => {
+    sponsorName.textContent = sponsors[sponsorIndex];
+    sponsorName.style.opacity = "1";
+  }, 250);
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(() => { changeSponsor(1); }, 3000);
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryImages = document.querySelectorAll(".gallery-grid img");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const category = button.textContent.toLowerCase();
+
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    galleryImages.forEach(img => {
+      img.style.display = img.dataset.category === category ? "block" : "none";
+    });
+  });
+});
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".gallery-title, .filters, .gallery-grid, .partners, .footer"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+
+const imgs = document.querySelectorAll(".gallery-grid img");
+
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add("visible");
+      }, index * 120);
+      imgObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.05,
+  rootMargin: "0px 0px 80px 0px"
+});
+
+imgs.forEach(img => imgObserver.observe(img));
+</script>
+
+</body>
+</html>
