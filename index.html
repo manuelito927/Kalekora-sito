@@ -204,43 +204,6 @@ function changeSponsor(direction) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    const revealElements = document.querySelectorAll(
-      ".coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
-    );
-
-    revealElements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top > window.innerHeight) {
-        el.classList.add("reveal");
-      }
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      const menuOpen = document.getElementById("mobileMenu").classList.contains("active");
-      if (menuOpen) return;
-
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.05,
-      rootMargin: "0px 0px 80px 0px"
-    });
-
-    revealElements.forEach(el => {
-      if (el.classList.contains("reveal")) {
-        observer.observe(el);
-      }
-    });
-
-  }, 200);
-});
-
 </script>
 
 </body>
