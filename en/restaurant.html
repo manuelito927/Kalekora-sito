@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Restaurant | Kalecora</title>
+
+  <style>
+    :root {
+      --sand:#bca98d;
+      --cream:#f4f4ef;
+      --black:#1e1e1e;
+      --white:#ffffff;
+      --blue-card:#b7c9d1;
+    }
+
+    *{box-sizing:border-box;}
+
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--black);
+      font-family:Arial,sans-serif;
+    }
+
+    .mobile-header{
+      background:#b9a789;
+      color:white;
+      padding:14px 5vw 18px;
+    }
+
+    .top-icons{
+      display:flex;
+      gap:clamp(14px, 3vw, 28px);
+      align-items:center;
+      font-size:15px;
+      margin-bottom:clamp(18px, 4vw, 32px);
+    }
+
+    .top-icons span:not(.lang),
+    .top-icons a{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:transparent;
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:15px;
+      text-decoration:none;
+    }
+
+    .top-icons .lang{
+      margin-left:auto;
+      font-size:clamp(18px, 3vw, 25px);
+      font-weight:bold;
+      color:white;
+      text-decoration:none;
+      width:auto;
+      height:auto;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .logo-symbol{
+      font-size:clamp(76px, 13vw, 120px);
+      line-height:1;
+      color:white;
+    }
+
+    .menu-btn{
+      width:48px;
+      height:48px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      font-size:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      margin-top:13px;
+    }
+
+    .mobile-menu{
+      max-height:0;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:0;
+      margin-top:0;
+      transition:max-height .35s ease, margin-top .35s ease;
+    }
+
+    .mobile-menu.active{
+      max-height:420px;
+      margin-top:28px;
+    }
+
+    .mobile-menu a{
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.25);
+    }
+
+    .intro,
+    .taste{
+      padding:clamp(70px, 10vw, 120px) 5vw;
+      text-align:center;
+    }
+
+    .intro h2,
+    .taste h2,
+    .blue-card h2{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:clamp(34px, 6.5vw, 70px);
+      letter-spacing:2px;
+      line-height:1.05;
+      margin-bottom:34px;
+      font-weight:500;
+      text-transform:uppercase;
+    }
+
+    .intro h2 span,
+    .taste h2 span,
+    .blue-card h2 span{
+      display:block;
+      font-size:clamp(32px, 6vw, 64px);
+      font-style:italic;
+      font-weight:300;
+      margin-top:6px;
+      text-transform:none;
+      color:#8f7d63;
+    }
+
+    .blue-card h2 span{
+      color:white;
+    }
+
+    .intro p,
+    .taste p,
+    .blue-card p,
+    .footer-text{
+      max-width:680px;
+      margin:0 auto 38px;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:clamp(17px, 2.4vw, 25px);
+      line-height:1.75;
+      letter-spacing:1.2px;
+    }
+
+    .outline-btn,
+    .white-btn{
+      display:inline-block;
+      padding:16px 28px;
+      border:1.5px solid #b9a789;
+      border-radius:999px;
+      font-size:clamp(13px, 2.1vw, 20px);
+      letter-spacing:2.8px;
+      font-weight:800;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:#8f7d63;
+    }
+
+    .white-btn{
+      color:white;
+      border-color:white;
+    }
+
+    .blue-card{
+      margin:40px 24px 0;
+      background:linear-gradient(135deg,#b9ccd3,#9fb7c0);
+      color:white;
+      text-align:center;
+      padding:62px 28px 68px;
+    }
+
+    .image-block{
+      padding:25px 7vw 35px;
+      background:var(--cream);
+      position:relative;
+    }
+
+    .image-block img{
+      width:100%;
+      max-width:1150px;
+      height:clamp(360px, 65vw, 680px);
+      object-fit:cover;
+      margin:0 auto;
+      display:block;
+    }
+
+    .slider{overflow:hidden;}
+
+    .arrows{
+      position:absolute;
+      left:50%;
+      bottom:60px;
+      transform:translateX(-50%);
+      display:flex;
+      gap:18px;
+    }
+
+    .arrows button{
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:rgba(188,169,141,0.9);
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .review{
+      background:linear-gradient(135deg,#bca98d,#a9916d);
+      color:white;
+      text-align:center;
+      padding:76px 32px;
+    }
+
+    .review .quote{
+      font-size:58px;
+      font-family:Georgia,serif;
+      line-height:.7;
+      margin-bottom:28px;
+    }
+
+    .review p{
+      max-width:470px;
+      margin:0 auto 34px;
+      font-family:Georgia,serif;
+      font-size:20px;
+      line-height:1.65;
+    }
+
+    .review strong{
+      display:block;
+      font-size:12px;
+      letter-spacing:.24em;
+      margin-bottom:14px;
+    }
+
+    .partners{
+      background:#f6f3ed;
+      padding:82px 34px 96px;
+      text-align:center;
+      border-top:1px solid rgba(188,169,141,0.25);
+    }
+
+    .partners h2{
+      font-family:Georgia,'Times New Roman',serif;
+      font-style:italic;
+      font-size:clamp(34px, 6vw, 58px);
+      font-weight:300;
+      margin-bottom:44px;
+    }
+
+    .partner-slider{
+      max-width:520px;
+      margin:0 auto 70px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:28px;
+    }
+
+    .partner-logo{
+      color:#bca98d;
+      font-size:clamp(38px, 8vw, 70px);
+      font-weight:800;
+      letter-spacing:.04em;
+      min-width:180px;
+      transition:opacity .25s ease;
+    }
+
+    .partner-arrow{
+      border:none;
+      background:transparent;
+      color:#bca98d;
+      font-size:42px;
+      cursor:pointer;
+    }
+
+    .footer-logo{
+      color:#b9a789;
+      font-size:clamp(42px, 8vw, 70px);
+      margin-bottom:32px;
+      line-height:1;
+    }
+
+    .footer-logo span{
+      display:inline-block;
+      margin-top:10px;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:clamp(30px, 6vw, 56px);
+      font-style:italic;
+      font-weight:300;
+      color:#7fa3c8;
+    }
+
+    .social{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      font-size:clamp(15px,2.5vw,20px);
+      letter-spacing:2.5px;
+      margin-bottom:60px;
+    }
+
+    .social strong{
+      width:100%;
+      margin-bottom:12px;
+      font-size:clamp(13px,2vw,17px);
+      letter-spacing:2.5px;
+    }
+
+    .social span{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#b9a789;
+      color:white;
+      display:inline-grid;
+      place-items:center;
+      font-size:15px;
+      margin:0 7px;
+    }
+
+    .social a{
+      text-decoration:none;
+      color:inherit;
+      display:inline-grid;
+    }
+
+    .contacts{
+      margin-top:76px;
+    }
+
+    .contacts h3{
+      font-size:clamp(16px, 2.5vw, 22px);
+      letter-spacing:3px;
+    }
+
+    .contacts p{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:clamp(14px, 2.1vw, 19px);
+      line-height:1.75;
+      letter-spacing:1px;
+      color:#333;
+    }
+
+    .map-link{
+      color:#8f7d63;
+      text-decoration:none;
+      border-bottom:1px solid #bca98d;
+      padding-bottom:4px;
+      font-size:14px;
+      letter-spacing:.18em;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(35px);
+      transition:opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="mobile-header">
+
+<div class="top-icons">
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-instagram"></i></span>
+  </a>
+
+  <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-facebook-f"></i></span>
+  </a>
+
+  <a class="lang" href="../ristorante.html">EN ⌄</a>
+</div>
+
+<div class="brand-row">
+  <div class="logo-symbol">◎</div>
+  <button class="menu-btn" type="button">☰</button>
+</div>
+
+<nav class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="beach.html">Beach</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
+
+</header>
+
+<section class="intro">
+  <h2>AUTHENTIC<br><span>Mediterranean Flavours</span></h2>
+
+  <p>
+    Mediterranean cuisine, authentic and unique flavours,
+    always fresh and genuine ingredients welcome you
+    in the elegant and refined atmosphere of the Kalecora restaurant.
+  </p>
+
+  <a class="outline-btn" href="#">RESTAURANT MENU</a>
+</section>
+
+<section class="blue-card">
+  <h2>REFINED<br><span>cuisine</span></h2>
+
+  <p>
+    Our restaurant offers refined cuisine with carefully selected ingredients,
+    paired with a wide selection of wines.
+  </p>
+
+  <p>
+    An unforgettable place to enjoy many specialties of traditional Puglian cuisine,
+    from the scents of the sea to those of the Mediterranean land.
+  </p>
+
+  <a class="white-btn" href="#">BOOK YOUR TABLE</a>
+</section>
+
+<section class="image-block slider">
+  <img class="slider-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="Restaurant dish">
+  <div class="arrows">
+    <button type="button" onclick="changeImage(this, -1)">‹</button>
+    <button type="button" onclick="changeImage(this, 1)">›</button>
+  </div>
+</section>
+
+<section class="taste">
+  <h2>TASTE<br><span>and quality</span></h2>
+
+  <p>
+    An original and charming setting where you can enjoy unique dishes,
+    created through the chefs’ creativity.
+  </p>
+
+  <p>
+    Nothing is left to chance: our restaurant offers a rich selection
+    of traditional dishes that tell the story of the territory,
+    with special attention to the choice of raw materials.
+  </p>
+
+  <p>
+    What makes our restaurant unique is the passion for good food
+    and the perfect mix of tradition and innovation.
+  </p>
+</section>
+
+<section class="image-block slider">
+  <img class="slider-img" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="Restaurant dish">
+  <div class="arrows">
+    <button type="button" onclick="changeImage(this, -1)">‹</button>
+    <button type="button" onclick="changeImage(this, 1)">›</button>
+  </div>
+</section>
+
+<section class="review">
+  <div class="quote">”</div>
+
+  <p>
+    We were invited by friends for a seaside lunch at this beach club restaurant.
+    The dishes were delicious and refined, in a unique location.
+    It was truly an experience to repeat, highly recommended!
+  </p>
+
+  <strong>FEDERICA T.</strong>
+  <div>15/06/22</div>
+</section>
+
+<section class="partners">
+  <h2>Partners</h2>
+
+  <div class="partner-slider">
+    <button class="partner-arrow" onclick="changeSponsor(-1)">‹</button>
+    <div class="partner-logo" id="sponsorName">Red Bull</div>
+    <button class="partner-arrow" onclick="changeSponsor(1)">›</button>
+  </div>
+
+  <div class="footer-logo">◎<br><span>KALECORA</span></div>
+
+  <p class="footer-text">
+    enjoy a complete and immersive experience all day long:
+    beach, restaurant, lounge bar, aperitifs and events.
+  </p>
+
+  <div class="social">
+    <strong>FOLLOW US</strong>
+
+    <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-instagram"></i></span>
+    </a>
+
+    <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-facebook-f"></i></span>
+    </a>
+  </div>
+
+  <div class="contacts">
+    <h3>ADDRESS AND CONTACTS</h3>
+
+    <p>
+      SP366, 5<br>
+      73026 Melendugno LE<br>
+      Phone: 3509274070
+    </p>
+
+    <a href="https://maps.google.com/?q=Kal%C3%A8+Cora+Melendugno"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="map-link">
+      VIEW MAP
+    </a>
+  </div>
+</section>
+
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+
+const sliderImages = [
+  "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1514986888952-8cd320577b68?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80"
+];
+
+function changeImage(button, direction) {
+  const slider = button.closest(".slider");
+  const img = slider.querySelector(".slider-img");
+  let currentIndex = sliderImages.findIndex(src => img.src.includes(src.split("?")[0]));
+  if (currentIndex === -1) currentIndex = 0;
+  const nextIndex = (currentIndex + direction + sliderImages.length) % sliderImages.length;
+  img.src = sliderImages[nextIndex];
+}
+
+const sponsors = ["Red Bull","Nike","Adidas","Coca-Cola","Rolex","Aperol","Campari","San Pellegrino"];
+let sponsorIndex = 0;
+const sponsorName = document.getElementById("sponsorName");
+
+function showSponsor() {
+  sponsorName.style.opacity = "0";
+  setTimeout(() => {
+    sponsorName.textContent = sponsors[sponsorIndex];
+    sponsorName.style.opacity = "1";
+  }, 250);
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(() => { changeSponsor(1); }, 3000);
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .blue-card, .image-block, .taste, .review, .partners"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
