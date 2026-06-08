@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Kalecora</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root{
+      --sand:#bca98d;
+      --cream:#f3f3ef;
+      --black:#1f1f1f;
+      --white:#ffffff;
+      --blue:#c8d8df;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      background:var(--cream);
+      font-family:Arial,sans-serif;
+      color:var(--black);
+    }
+
+    .mobile-header{
+      background:#b9a789;
+      color:white;
+      padding:14px 5vw 18px;
+    }
+
+    .top-icons{
+      display:flex;
+      gap:clamp(14px, 3vw, 28px);
+      align-items:center;
+      font-size:15px;
+      margin-bottom:clamp(18px, 4vw, 32px);
+    }
+
+    .top-icons span:not(.lang){
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:transparent;
+      color:white;
+      display:grid;
+      place-items:center;
+      font-size:15px;
+    }
+
+    .top-icons .lang{
+      margin-left:auto;
+      font-size:clamp(18px, 3vw, 25px);
+      font-weight:bold;
+      color:white;
+      text-decoration:none;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .logo-symbol{
+      font-size:clamp(76px, 13vw, 120px);
+      line-height:1;
+      color:white;
+    }
+
+    .menu-btn{
+      width:48px;
+      height:48px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      font-size:26px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      margin-top:13px;
+    }
+
+    .mobile-menu{
+      max-height:0;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      padding:0;
+      margin-top:0;
+      transition:max-height .35s ease, margin-top .35s ease;
+    }
+
+    .mobile-menu.active{
+      max-height:650px;
+      margin-top:30px;
+      padding-bottom:24px;
+    }
+
+    .mobile-menu a{
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.25);
+    }
+
+    .hero{
+      height: clamp(520px, 90vw, 820px);
+      background:
+        linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.18)),
+        url("../discoteca1.jpg")
+        center/cover no-repeat;
+    }
+
+    .intro{
+      padding: clamp(70px, 10vw, 120px) 5vw;
+      text-align:center;
+      background:var(--cream);
+    }
+
+    .intro p,
+    .note,
+    .footer-text{
+      max-width: 680px;
+      margin: 0 auto 38px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(17px, 2.4vw, 25px);
+      line-height: 1.75;
+      letter-spacing: 1.2px;
+      color: #333;
+    }
+
+    .intro strong{
+      font-style:italic;
+      font-weight:500;
+      color:#8f7d63;
+    }
+
+    .date-btn,
+    .music-btn,
+    .contact-btn{
+      display: inline-block;
+      padding: 16px 28px;
+      border: 1.5px solid #b9a789;
+      border-radius: 999px;
+      font-size: clamp(13px, 2.1vw, 20px);
+      letter-spacing: 2.8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration:none;
+    }
+
+    .date-btn{
+      color:#8f7d63;
+      margin-top:34px;
+    }
+
+    .music-card{
+      margin:48px 24px 70px;
+      padding:64px 28px 68px;
+      text-align:center;
+      color:white;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.16) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 75% 65%, rgba(110,85,55,.18) 0 1px, transparent 1.5px),
+        linear-gradient(135deg, #c7b08e, #a98f6a);
+      background-size:18px 18px, 24px 24px, 100% 100%;
+    }
+
+    .music-card h2{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(34px, 6.5vw, 70px);
+      letter-spacing: 2px;
+      line-height: 1.05;
+      font-weight: 500;
+      margin-bottom:30px;
+    }
+
+    .music-card h2 span{
+      display:block;
+      font-size: clamp(32px, 6vw, 64px);
+      font-style: italic;
+      font-weight: 300;
+      margin-top:8px;
+    }
+
+    .music-btn{
+      color:white;
+      border-color:white;
+    }
+
+    .music-image{
+      padding:0 28px 72px;
+      background:#f3f3ef;
+      text-align:center;
+    }
+
+    .music-image img,
+    .blue-section img{
+      width: 100%;
+      max-width: 1150px;
+      height: clamp(360px, 65vw, 680px);
+      object-fit: cover;
+      display:block;
+      margin:0 auto;
+    }
+
+    .blue-section{
+      padding:0 28px 72px;
+      background:var(--blue);
+      text-align:center;
+    }
+
+    .partners{
+      padding:70px 28px 55px;
+      text-align:center;
+    }
+
+    .partners h2{
+      font-family: Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      font-size: clamp(34px, 6vw, 58px);
+      font-weight: 300;
+      margin-bottom:42px;
+    }
+
+    .partner-slider{
+      max-width:520px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:34px;
+    }
+
+    .partner-logo-text{
+      color:var(--sand);
+      font-size: clamp(38px, 8vw, 70px);
+      font-weight:800;
+      letter-spacing:.04em;
+      transition:opacity .25s ease;
+    }
+
+    .partner-arrow{
+      border:none;
+      background:transparent;
+      color:var(--sand);
+      font-size:42px;
+      line-height:1;
+      cursor:pointer;
+      opacity:.75;
+    }
+
+    .footer{
+      padding:48px 28px 90px;
+      text-align:center;
+    }
+
+    .footer-logo{
+      color:#b9a789;
+      font-size: clamp(42px, 8vw, 70px);
+      margin-bottom: 32px;
+      line-height: 1;
+    }
+
+    .footer-logo span{
+      display:inline-block;
+      margin-top:10px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(30px, 6vw, 56px);
+      font-style: italic;
+      font-weight: 300;
+      color:#7fa3c8;
+    }
+
+    .social{
+      color:#1f1f1f;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.18em;
+      margin-bottom:46px;
+    }
+
+    .social span{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#b9a789;
+      color:white;
+      display:inline-grid;
+      place-items:center;
+      font-size:15px;
+      margin:0 7px;
+      letter-spacing:0;
+    }
+
+    .contacts{
+      margin-top:40px;
+    }
+
+    .contacts h3{
+      font-size: clamp(16px, 2.5vw, 22px);
+      letter-spacing: 3px;
+      margin-bottom:24px;
+    }
+
+    .contacts p{
+      max-width:420px;
+      margin:0 auto;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(14px, 2.1vw, 19px);
+      line-height: 1.75;
+      letter-spacing: 1px;
+      color:#333;
+    }
+
+    .top-icons a,
+    .social a{
+      text-decoration:none;
+      color:inherit;
+      display:inline-grid;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="eventi-page">
+
+<header class="mobile-header">
+
+<div class="top-icons">
+
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-instagram"></i></span>
+  </a>
+
+  <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-facebook-f"></i></span>
+  </a>
+
+  <a class="lang" href="../eventi.html">EN ⌄</a>
+
+</div>
+
+<div class="brand-row">
+  <div class="logo-symbol">◎</div>
+  <button class="menu-btn" type="button">☰</button>
+</div>
+
+<nav class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="beach.html">Beach</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
+
+</header>
+
+<section class="hero"></section>
+
+<section class="intro">
+  <p>International events with the best DJs and artists,</p>
+  <p>happy hours and musical aperitifs at sunset</p>
+
+  <p>
+    <strong>every Thursday, Friday, Saturday and Sunday</strong>
+  </p>
+
+  <a href="#" class="date-btn">FRIDAY, MAY 01</a>
+
+  <div class="note">
+    * Kalecora reserves the <strong>right of selection</strong> at the entrance.<br>
+    Online registration and table booking <strong>do not guarantee</strong> entry.<br>
+    The event is reserved for an <strong>OVER 23</strong> audience.
+  </div>
+</section>
+
+<section class="music-card">
+  <h2>
+    LIVE MUSIC
+    <span>and drinks</span>
+  </h2>
+
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw=="
+     target="_blank"
+     rel="noopener noreferrer"
+     class="music-btn">
+    FOLLOW US FOR UPDATES
+  </a>
+</section>
+
+<section class="music-image">
+  <img src="../calici.jpg" alt="Kalecora drinks">
+</section>
+
+<section class="blue-section">
+  <img src="../allen.jpg" alt="Kalecora event">
+</section>
+
+<section class="partners">
+  <h2>Partners</h2>
+
+  <div class="partner-slider">
+    <button class="partner-arrow" onclick="changeSponsor(-1)">‹</button>
+    <div class="partner-logo-text" id="sponsorName">Red Bull</div>
+    <button class="partner-arrow" onclick="changeSponsor(1)">›</button>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-logo">◎<br><span>KALECORA</span></div>
+
+  <p class="footer-text">
+    enjoy a complete and immersive experience all day long:
+    beach, restaurant, lounge bar, aperitifs and events.
+  </p>
+
+  <div class="social">
+    <strong>FOLLOW US</strong><br><br>
+
+    <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-instagram"></i></span>
+    </a>
+
+    <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-facebook-f"></i></span>
+    </a>
+  </div>
+
+  <div class="contacts">
+    <h3>ADDRESS AND CONTACTS</h3>
+
+    <p>
+      SP366, 5<br>
+      73026 Melendugno LE<br>
+      Phone: 3509274070
+    </p>
+
+    <a href="https://maps.google.com/?q=Kal%C3%A8+Cora+Melendugno"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="
+         display:inline-block;
+         margin-top:25px;
+         color:#8f7d63;
+         font-size:12px;
+         font-weight:600;
+         letter-spacing:.26em;
+         text-decoration:none;
+         border-bottom:1px solid #bca98d;
+         padding-bottom:6px;
+       ">
+      VIEW MAP
+    </a>
+  </div>
+</section>
+
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+
+const sponsors = [
+  "Red Bull","Grey Goose","Moët & Chandon","Veuve Clicquot",
+  "Belvedere","Perrier-Jouët","San Pellegrino","Fever-Tree","Aperol","Campari"
+];
+
+let sponsorIndex = 0;
+const sponsorName = document.getElementById("sponsorName");
+
+function showSponsor() {
+  sponsorName.style.opacity = "0";
+  setTimeout(() => {
+    sponsorName.textContent = sponsors[sponsorIndex];
+    sponsorName.style.opacity = "1";
+  }, 250);
+}
+
+function changeSponsor(direction) {
+  sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
+  showSponsor();
+}
+
+setInterval(() => { changeSponsor(1); }, 3000);
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .music-card, .music-image, .blue-section, .partners, .footer"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
