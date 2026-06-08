@@ -186,23 +186,11 @@
 </a>
 
 <script>
+
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
   menu.classList.toggle("active");
-
-  if (menu.classList.contains("active")) {
-    document.querySelectorAll(".reveal:not(.active)").forEach(el => {
-      el.style.opacity = "1";
-      el.style.transform = "none";
-    });
-  } else {
-    document.querySelectorAll(".reveal:not(.active)").forEach(el => {
-      el.style.opacity = "";
-      el.style.transform = "";
-    });
-  }
 }
-
 
 const sponsors = ["Red Bull", "Nike", "Adidas", "Coca-Cola", "Rolex"];
 let sponsorIndex = 0;
@@ -219,7 +207,7 @@ function changeSponsor(direction) {
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     const revealElements = document.querySelectorAll(
-      ".welcome-section, .coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
+      ".coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
     );
 
     revealElements.forEach(el => {
@@ -230,6 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const observer = new IntersectionObserver((entries) => {
+      const menuOpen = document.getElementById("mobileMenu").classList.contains("active");
+      if (menuOpen) return;
+
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
@@ -249,8 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }, 200);
 });
-
-
 
 </script>
 
