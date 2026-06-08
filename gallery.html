@@ -615,6 +615,24 @@ window.addEventListener('load', () => {
   revealElements.forEach(el => observer.observe(el));
 });
 
+const imgs = document.querySelectorAll(".gallery-grid img");
+
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add("visible");
+      }, index * 120);
+      imgObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.05,
+  rootMargin: "0px 0px 80px 0px"
+});
+
+imgs.forEach(img => imgObserver.observe(img));
+
 
 </script>
 
