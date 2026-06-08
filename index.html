@@ -187,8 +187,22 @@
 
 <script>
 function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
+  const menu = document.getElementById("mobileMenu");
+  menu.classList.toggle("active");
+
+  if (menu.classList.contains("active")) {
+    document.querySelectorAll(".reveal:not(.active)").forEach(el => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+  } else {
+    document.querySelectorAll(".reveal:not(.active)").forEach(el => {
+      el.style.opacity = "";
+      el.style.transform = "";
+    });
+  }
 }
+
 
 const sponsors = ["Red Bull", "Nike", "Adidas", "Coca-Cola", "Rolex"];
 let sponsorIndex = 0;
