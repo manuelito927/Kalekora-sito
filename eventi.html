@@ -701,16 +701,8 @@ menuBtn.addEventListener("click", () => {
 });
 
 const sponsors = [
-  "Red Bull",
-  "Grey Goose",
-  "Moët & Chandon",
-  "Veuve Clicquot",
-  "Belvedere",
-  "Perrier-Jouët",
-  "San Pellegrino",
-  "Fever-Tree",
-  "Aperol",
-  "Campari"
+  "Red Bull","Grey Goose","Moët & Chandon","Veuve Clicquot",
+  "Belvedere","Perrier-Jouët","San Pellegrino","Fever-Tree","Aperol","Campari"
 ];
 
 let sponsorIndex = 0;
@@ -718,7 +710,6 @@ const sponsorName = document.getElementById("sponsorName");
 
 function showSponsor() {
   sponsorName.style.opacity = "0";
-
   setTimeout(() => {
     sponsorName.textContent = sponsors[sponsorIndex];
     sponsorName.style.opacity = "1";
@@ -730,9 +721,30 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-setInterval(() => {
-  changeSponsor(1);
-}, 3000);
+setInterval(() => { changeSponsor(1); }, 3000);
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .music-card, .music-image, .blue-section, .partners, .footer"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+
 </script>
 
 </body>
