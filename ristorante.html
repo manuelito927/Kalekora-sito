@@ -940,6 +940,12 @@ function changeSponsor(direction) {
 
 setInterval(() => { changeSponsor(1); }, 3000);
 
+document.querySelectorAll(".menu-category-head").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.closest(".menu-category-box").classList.toggle("active");
+  });
+});
+
 window.addEventListener('load', () => {
   const revealElements = document.querySelectorAll(
     ".intro, .blue-card, .image-block, .taste, .review, .partners"
