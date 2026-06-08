@@ -1336,11 +1336,11 @@ body {
   color:#87a5c8;
 }
 
-/* EFFETTO COMPARSA ALLO SCROLL */
 .reveal{
   opacity:0;
-  transform:translateY(45px);
-  transition:opacity 1s ease, transform 1s ease;
+  transform:translateY(28px);
+  transition:opacity .8s ease, transform .8s ease;
+  will-change:opacity, transform;
 }
 
 .reveal.active{
