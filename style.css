@@ -1311,3 +1311,20 @@ body {
   margin-top:10px;
 }
 
+.coast-book{
+  display:inline-block;
+  padding:16px 34px;
+  border:1.5px solid white;
+  border-radius:999px;
+  color:white;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.coast-book:hover{
+  background:white;
+  color:#87a5c8;
+}
+
