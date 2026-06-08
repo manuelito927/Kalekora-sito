@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts | Kalecora</title>
+<style>
+:root{
+  --sand:#bca98d;
+  --cream:#f3f3ef;
+  --black:#1f1f1f;
+  --blue:#87a5c8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--cream);
+  font-family:Arial,sans-serif;
+  color:var(--black);
+}
+.mobile-header{
+  background:#b9a789;
+  color:white;
+  padding:14px 5vw 18px;
+}
+.top-icons{
+  display:flex;
+  gap:clamp(14px, 3vw, 28px);
+  align-items:center;
+  font-size:15px;
+  margin-bottom:clamp(18px, 4vw, 32px);
+}
+.top-icons span:not(.lang){
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:transparent;
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:15px;
+}
+.top-icons .lang{
+  margin-left:auto;
+  font-size:clamp(18px, 3vw, 25px);
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+}
+.brand-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.logo-symbol{
+  font-size:clamp(76px, 13vw, 120px);
+  line-height:1;
+  color:white;
+}
+.menu-btn{
+  width:48px;
+  height:48px;
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  cursor:pointer;
+  margin-top:13px;
+}
+.mobile-menu{
+  max-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding:0;
+  margin-top:0;
+  transition:max-height .35s ease, margin-top .35s ease;
+}
+.mobile-menu.active{
+  max-height:650px;
+  margin-top:30px;
+  padding-bottom:24px;
+}
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
+.intro{
+  padding: clamp(70px, 10vw, 120px) 5vw;
+  text-align:center;
+}
+.intro h2{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 6.5vw, 70px);
+  letter-spacing: 2px;
+  line-height: 1.05;
+  margin-bottom: 34px;
+  font-weight: 500;
+}
+.intro h3{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 6vw, 64px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 1.2px;
+  color: #8f7d63;
+  margin-bottom: 28px;
+}
+.intro p,
+.card p,
+.map-box-elegant p,
+.footer-text{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(16px, 2.4vw, 23px);
+  line-height: 1.75;
+  letter-spacing: 1.1px;
+  color: #333;
+}
+.info-section{
+  padding:0 28px 70px;
+  max-width:520px;
+  margin:auto;
+}
+.card{
+  border-top:1px solid #ddd;
+  padding:40px 0;
+  text-align:center;
+}
+.card h3,
+.contacts h3{
+  font-size: clamp(16px, 2.5vw, 22px);
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+.card h3{
+  margin-bottom:20px;
+}
+.map-box-elegant{
+  width:calc(100% - 56px);
+  max-width:520px;
+  margin:0 auto 70px;
+  background:#f7f7f5;
+  padding:30px 22px;
+  text-align:center;
+}
+.map-box-elegant img{
+  width:100%;
+  max-width:420px;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 26px;
+}
+.map-box-elegant h2{
+  font-family:Georgia,serif;
+  font-size:32px;
+  color:var(--sand);
+  font-weight:500;
+  margin-bottom:16px;
+}
+.map-box-elegant .italic{
+  font-style:italic;
+  margin-top:10px;
+}
+.form-section{
+  margin:0 28px 70px;
+}
+.form-section h2,
+.partners h2{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 300;
+}
+.form-section h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+input,
+textarea{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #ccc;
+  padding:12px 0;
+  margin-bottom:18px;
+  background:transparent;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(15px, 2.3vw, 21px);
+  letter-spacing: 1.1px;
+}
+textarea{
+  height:100px;
+}
+.submit-btn{
+  width:100%;
+  background:var(--sand);
+  color:white;
+  border:none;
+  padding: 17px 24px;
+  font-size: clamp(13px, 2vw, 18px);
+  letter-spacing: 2.5px;
+  font-weight: 700;
+}
+.map iframe{
+  width:100%;
+  height:250px;
+  border:0;
+}
+.partners{
+  padding:70px 28px 55px;
+  text-align:center;
+}
+.partners h2{
+  margin-bottom: 45px;
+  color: #1d1d1d;
+}
+.partner-logo-text{
+  color:#b9a789;
+  font-size: clamp(38px, 8vw, 70px);
+  font-weight:800;
+  letter-spacing:1px;
+}
+.partner-slider button{
+  border:none;
+  background:transparent;
+  color:#b9a789;
+  font-size:42px;
+  line-height:1;
+  cursor:pointer;
+}
+.partner-slider{
+  max-width:520px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:34px;
+}
+.footer{
+  padding:50px 28px;
+  text-align:center;
+}
+.footer-logo{
+  color:#b9a789;
+  font-size: clamp(42px, 8vw, 70px);
+  margin-bottom: 32px;
+  line-height: 1;
+}
+.footer-logo span{
+  display:inline-block;
+  margin-top:10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(30px, 6vw, 56px);
+  font-style: italic;
+  font-weight: 300;
+  color:#7fa3c8;
+}
+.social{
+  font-size:12px;
+  letter-spacing:.2em;
+  margin-bottom:30px;
+}
+.social span{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#b9a789;
+  color:white;
+  display:inline-grid;
+  place-items:center;
+  font-size:15px;
+  margin:0 7px;
+  letter-spacing:0;
+}
+.top-icons a,
+.social a{
+  text-decoration:none;
+  color:inherit;
+  display:inline-grid;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.3s ease, transform 1.3s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header class="mobile-header">
+<div class="top-icons">
+  <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-instagram"></i></span>
+  </a>
+  <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+    <span><i class="fa-brands fa-facebook-f"></i></span>
+  </a>
+  <a class="lang" href="../contatti.html">EN ⌄</a>
+</div>
+<div class="brand-row">
+  <div class="logo-symbol">◎</div>
+  <button class="menu-btn" type="button">☰</button>
+</div>
+<nav class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="beach.html">Beach</a>
+  <a href="restaurant.html">Restaurant</a>
+  <a href="events.html">Events</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
+</header>
+<section class="intro">
+  <h2>Contact us</h2>
+  <h3>for information</h3>
+  <p>Write to us for any request or information.</p>
+</section>
+<section class="info-section">
+  <div class="card">
+    <h3>CONTACTS</h3>
+    <p>3509274070</p>
+  </div>
+  <div class="card">
+    <h3>ADDRESS</h3>
+    <p>SP366, 5<br>73026 Melendugno LE</p>
+  </div>
+  <div class="card">
+    <h3>EMAIL</h3>
+    <p>lidokalecora@gmail.com</p>
+  </div>
+</section>
+<section class="map-box-elegant">
+  <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Map">
+  <h2>How to reach us:</h2>
+  <p>
+    Take advantage of our free shuttle service<br>
+    to reach the beach club.
+  </p>
+  <p class="italic">
+    Check the strategic points located throughout the area.
+  </p>
+</section>
+<section class="form-section">
+  <h2>Write to us</h2>
+  <input type="text" placeholder="Name">
+  <input type="email" placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button class="submit-btn">SEND</button>
+</section>
+<section class="map">
+  <iframe src="https://maps.google.com/maps?q=Kal%C3%A8%20Cora%20Melendugno&z=16&output=embed"></iframe>
+</section>
+<section class="partners">
+  <h2>Partners</h2>
+  <div class="partner-slider">
+    <button onclick="changeSponsor(-1)">‹</button>
+    <div id="sponsorName" class="partner-logo-text">Red Bull</div>
+    <button onclick="changeSponsor(1)">›</button>
+  </div>
+</section>
+<section class="footer">
+  <div class="footer-logo">◎<br><span>KALECORA</span></div>
+  <p class="footer-text">
+    enjoy a complete experience between beach, restaurant and events.
+  </p>
+  <div class="social">
+    <strong>FOLLOW US</strong><br><br>
+    <a href="https://www.instagram.com/kalecorabeach?igsh=MTF5dnoxd2xnbmExdw==" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-instagram"></i></span>
+    </a>
+    <a href="https://www.facebook.com/share/1D6LdepDjm/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+      <span><i class="fa-brands fa-facebook-f"></i></span>
+    </a>
+  </div>
+</section>
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+menuBtn.onclick = () => mobileMenu.classList.toggle("active");
+const sponsors = ["Red Bull","Moët","Aperol","Campari"];
+let i = 0;
+const el = document.getElementById("sponsorName");
+function changeSponsor(d){
+  i=(i+d+sponsors.length)%sponsors.length;
+  el.textContent=sponsors[i];
+}
+setInterval(()=>changeSponsor(1),3000);
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .info-section, .map-box-elegant, .form-section, .map, .partners, .footer"
+  );
+  revealElements.forEach(el => el.classList.add("reveal"));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+  revealElements.forEach(el => observer.observe(el));
+});
+</script>
+</body>
+</html>
