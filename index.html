@@ -224,6 +224,16 @@ window.addEventListener('load', () => {
   revealElements.forEach(el => observer.observe(el));
 });
 
+  // Fix: forza il check sugli elementi già visibili al caricamento
+  setTimeout(() => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add("active");
+      }
+    });
+  }, 100);
+
 </script>
 
 </body>
