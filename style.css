@@ -51,6 +51,10 @@ margin-bottom: clamp(18px, 4vw, 32px);
   font-weight: bold;
 }
 
+.top-icons .lang{
+  transform: translateY(-8px);
+}
+
 .brand-row {
   display: flex;
   justify-content: space-between;
