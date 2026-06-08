@@ -815,31 +815,18 @@ const sliderImages = [
 function changeImage(button, direction) {
   const slider = button.closest(".slider");
   const img = slider.querySelector(".slider-img");
-
   let currentIndex = sliderImages.findIndex(src => img.src.includes(src.split("?")[0]));
   if (currentIndex === -1) currentIndex = 0;
-
   const nextIndex = (currentIndex + direction + sliderImages.length) % sliderImages.length;
   img.src = sliderImages[nextIndex];
 }
 
-const sponsors = [
-  "Red Bull",
-  "Nike",
-  "Adidas",
-  "Coca-Cola",
-  "Rolex",
-  "Aperol",
-  "Campari",
-  "San Pellegrino"
-];
-
+const sponsors = ["Red Bull","Nike","Adidas","Coca-Cola","Rolex","Aperol","Campari","San Pellegrino"];
 let sponsorIndex = 0;
 const sponsorName = document.getElementById("sponsorName");
 
 function showSponsor() {
   sponsorName.style.opacity = "0";
-
   setTimeout(() => {
     sponsorName.textContent = sponsors[sponsorIndex];
     sponsorName.style.opacity = "1";
@@ -851,9 +838,30 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-setInterval(() => {
-  changeSponsor(1);
-}, 3000);
+setInterval(() => { changeSponsor(1); }, 3000);
+
+window.addEventListener('load', () => {
+  const revealElements = document.querySelectorAll(
+    ".intro, .blue-card, .image-block, .taste, .review, .partners"
+  );
+
+  revealElements.forEach(el => el.classList.add("reveal"));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.05,
+    rootMargin: "0px 0px 80px 0px"
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+});
+
 
 </script>
 
