@@ -202,25 +202,19 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-/* EFFETTO COMPARSA SCROLL */
-const revealElements = document.querySelectorAll(
-  ".welcome-section, .coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
-);
-
-revealElements.forEach(el => el.classList.add("reveal"));
-
-function revealOnScroll(){
-  revealElements.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-
-    if(elementTop < windowHeight - 80){
-      el.classList.add("active");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target);
     }
   });
-}
+}, {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+});
 
-window.addEventListener("scroll", revealOnScroll);
+revealElements.forEach(el => observer.observe(el));
 window.addEventListener("load", revealOnScroll);
 </script>
 
