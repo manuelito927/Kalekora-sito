@@ -49,9 +49,10 @@ margin-bottom: clamp(18px, 4vw, 32px);
   margin-left: auto;
   font-size: clamp(18px, 3vw, 25px);
   font-weight: bold;
-}
-
-.top-icons .lang{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
   transform: none;
 }
 
