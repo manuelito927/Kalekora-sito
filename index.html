@@ -217,12 +217,24 @@ const startReveal = () => {
         observer.unobserve(entry.target);
       }
     });
+    
   }, {
     threshold: 0.05,
     rootMargin: "0px 0px 80px 0px"
   });
 
   revealElements.forEach(el => observer.observe(el));
+
+};
+
+if (document.readyState === 'complete') {
+  startReveal();
+} else {
+  window.addEventListener('load', startReveal);
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(startReveal, 300);
+  });
+}
 
   setTimeout(() => {
     revealElements.forEach(el => {
