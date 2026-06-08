@@ -188,8 +188,7 @@
 <script>
 
 function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("active");
+  document.getElementById("mobileMenu").classList.toggle("active");
 }
 
 const sponsors = ["Red Bull", "Nike", "Adidas", "Coca-Cola", "Rolex"];
@@ -203,6 +202,7 @@ function changeSponsor(direction) {
   sponsorIndex = (sponsorIndex + direction + sponsors.length) % sponsors.length;
   showSponsor();
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
