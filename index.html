@@ -202,27 +202,13 @@ function changeSponsor(direction) {
   showSponsor();
 }
 
-const revealElements = document.querySelectorAll(
-  ".welcome-section, .coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
-);
+document.addEventListener("DOMContentLoaded", () => {
+  const revealElements = document.querySelectorAll(
+    ".welcome-section, .coast-card, .photo-stack img, .experience-section, .quote-section, .partners-section, .newsletter-section"
+  );
 
-revealElements.forEach(el => el.classList.add("reveal"));
-
-function revealOnScroll(){
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-
-    if(rect.top < window.innerHeight * 0.9){
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll, { passive: true });
-window.addEventListener("load", revealOnScroll);
-window.addEventListener("resize", revealOnScroll);
-
-setTimeout(revealOnScroll, 300);
+  revealElements.forEach(el => el.classList.add("reveal", "active"));
+});
 </script>
 
 </body>
