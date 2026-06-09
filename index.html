@@ -220,6 +220,17 @@ function changeSponsor(direction) {
 }
 
 
+function acceptPrivacy(){
+  localStorage.setItem("privacyAccepted","yes");
+  document.getElementById("privacyPopup").style.display="none";
+}
+
+window.addEventListener("load", () => {
+  if(localStorage.getItem("privacyAccepted") === "yes"){
+    document.getElementById("privacyPopup").style.display="none";
+  }
+});
+
 </script>
 
 </body>
