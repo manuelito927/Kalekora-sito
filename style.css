@@ -1435,3 +1435,10 @@ body {
   cursor:pointer;
 }
 
+.cookie-overlay{
+  display:none;
+}
+
+.cookie-overlay.show{
+  display:flex;
+}
