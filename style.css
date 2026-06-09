@@ -1391,10 +1391,14 @@ body {
   inset:0;
   background:rgba(20,20,20,.48);
   z-index:99999;
-  display:flex;
+  display:none;
   align-items:center;
   justify-content:center;
   padding:24px;
+}
+
+.privacy-popup.show{
+  display:flex;
 }
 
 .privacy-box{
