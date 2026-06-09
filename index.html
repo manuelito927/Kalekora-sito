@@ -225,12 +225,12 @@ function changeSponsor(direction) {
 
 function acceptPrivacy(){
   localStorage.setItem("privacyAccepted","yes");
-  document.getElementById("privacyPopup").style.display="none";
+  document.getElementById("privacyPopup").classList.remove("show");
 }
 
 window.addEventListener("load", () => {
-  if(localStorage.getItem("privacyAccepted") === "yes"){
-    document.getElementById("privacyPopup").style.display="none";
+  if(localStorage.getItem("privacyAccepted") !== "yes"){
+    document.getElementById("privacyPopup").classList.add("show");
   }
 });
 
