@@ -455,6 +455,41 @@ textarea{
   transform: translateY(0);
 }
 
+.reach-icon{
+  width:100%;
+  max-width:420px;
+  height:220px;
+  margin:0 auto 26px;
+  background:#eee9df;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  color:#b9a789;
+}
+
+.reach-icon i{
+  font-size:42px;
+}
+
+.reach-icon span{
+  width:90px;
+  height:1px;
+  background:#b9a789;
+  position:relative;
+}
+
+.reach-icon span::after{
+  content:"";
+  position:absolute;
+  right:-2px;
+  top:-4px;
+  width:8px;
+  height:8px;
+  border-top:1px solid #b9a789;
+  border-right:1px solid #b9a789;
+  transform:rotate(45deg);
+}
 
 </style>
 
