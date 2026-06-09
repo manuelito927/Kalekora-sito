@@ -1090,6 +1090,47 @@ function changeSponsor(direction) {
 
 setInterval(() => { changeSponsor(1); }, 3000);
 
+
+const reviews = [
+  {
+    text: "Una vera perla sul mare! Il lido è curato in ogni dettaglio, atmosfera rilassante, personale gentile e cucina ottima.",
+    name: "ALESSANDRA",
+    date: "AGOSTO 2025"
+  },
+  {
+    text: "Giornata favolosa in uno dei migliori lidi della costa adriatica. Qualità del cibo e servizio gentilissimo.",
+    name: "SILVIA G",
+    date: "AGOSTO 2025"
+  },
+  {
+    text: "Spiaggia ben curata, baia suggestiva e personale gentile. Un posto dove ci si sente a proprio agio.",
+    name: "CLAUDIA M",
+    date: "LUGLIO 2024"
+  },
+  {
+    text: "Lido spettacolare, personale gentilissimo, si mangia bene e tutti sono molto disponibili.",
+    name: "ODYSSEY",
+    date: "LUGLIO 2024"
+  },
+  {
+    text: "Una spiaggia bellissima, attrezzata con ombrelloni e capanne. Panorama di mare davvero speciale.",
+    name: "RICCIONE",
+    date: "LUGLIO 2023"
+  }
+];
+
+let reviewIndex = 0;
+
+function changeReview(){
+  reviewIndex = (reviewIndex + 1) % reviews.length;
+
+  document.getElementById("reviewText").textContent = reviews[reviewIndex].text;
+  document.getElementById("reviewName").textContent = reviews[reviewIndex].name;
+  document.getElementById("reviewDate").textContent = reviews[reviewIndex].date;
+}
+
+setInterval(changeReview, 4000);
+
 document.querySelectorAll(".menu-category-head").forEach(btn => {
   btn.addEventListener("click", () => {
     btn.closest(".menu-category-box").classList.toggle("active");
