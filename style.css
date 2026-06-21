@@ -1449,3 +1449,8 @@ body {
 .cookie-overlay.show{
   display:flex;
 }
+
+.partners-section > h2,
+.partners-section > .sponsor-slider{
+  display: none;
+}
