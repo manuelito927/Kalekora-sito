@@ -476,14 +476,20 @@ font-weight: 800;
   background: white;
   color: #1d1d1d;
 
-  padding: 14px 22px;
+  width: 330px;
+  max-width: calc(100% - 44px);
 
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  padding: 18px 22px;
 
-  border-radius: 2px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1.25;
 
+  text-align: center;
+  text-transform: uppercase;
+
+  border-radius: 3px;
   z-index: 9999;
 
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
