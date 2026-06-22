@@ -64,17 +64,18 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .logo-block{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
+  width: 240px;
+  height: 130px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-img{
-  width: 220px;
+  width: 760px;
   height: auto;
   display: block;
-  object-fit: contain;
 }
 
 .logo-symbol{
