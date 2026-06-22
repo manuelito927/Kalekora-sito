@@ -504,6 +504,10 @@ setInterval(() => { changeSponsor(1); }, 3000);
 const filterButtons = document.querySelectorAll(".filter-btn");
 const galleryImages = document.querySelectorAll(".gallery-grid img");
 
+galleryImages.forEach(img => {
+  img.style.display = img.dataset.category === "beach" ? "block" : "none";
+});
+
 filterButtons.forEach(button => {
   button.addEventListener("click", () => {
     const category = button.textContent.toLowerCase();
