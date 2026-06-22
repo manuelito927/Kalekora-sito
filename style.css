@@ -66,11 +66,11 @@ margin-bottom: clamp(18px, 4vw, 32px);
 .logo-block{
   width: 300px;
   height: 95px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  transform: translateX(-70px);
+  margin-left: -40px;
 }
 
 .logo-img{
