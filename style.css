@@ -69,9 +69,8 @@ margin-bottom: clamp(18px, 4vw, 32px);
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transform: translateX(-25px);
-  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: translateX(-70px);
 }
 
 .logo-img{
