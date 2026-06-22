@@ -70,6 +70,13 @@ margin-bottom: clamp(18px, 4vw, 32px);
   color:white;
 }
 
+.logo-img{
+  width: 220px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .logo-symbol{
   font-size:clamp(58px, 11vw, 95px);
   line-height:.8;
