@@ -959,6 +959,10 @@ width: calc(100% - 80px);
   background:#b9a789;
 }
 
+.social-footer a{
+  background:#b9a789;
+}
+
 .newsletter-section {
   padding: 0 28px 50px;
 margin-top: -1cm;
