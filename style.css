@@ -69,8 +69,9 @@ margin-bottom: clamp(18px, 4vw, 32px);
   overflow:visible;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
-  margin-left:-160px;
+  justify-content:flex-end;
+  margin-left:0;
+  margin-right:-160px;
   transform:translateY(-8px);
   pointer-events:none;
 }
