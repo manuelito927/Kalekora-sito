@@ -652,16 +652,21 @@
 
 
 <section class="review">
+  <button class="review-arrow left" onclick="changeReview(-1)">‹</button>
+
   <div class="quote">”</div>
 
-  <p>
-    We were invited by friends for a seaside lunch at this beach club restaurant.
-    The dishes were delicious and refined, in a unique location.
-    It was truly an experience to repeat, highly recommended!
+  <div class="review-stars">★★★★★</div>
+
+  <p id="reviewText">
+    A true gem by the sea! The beach club is cared for in every detail,
+    with a relaxing atmosphere, kind staff and excellent cuisine.
   </p>
 
-  <strong>FEDERICA T.</strong>
-  <div>15/06/22</div>
+  <strong id="reviewName">ALESSANDRA</strong>
+  <div id="reviewDate">AUGUST 2025</div>
+
+  <button class="review-arrow right" onclick="changeReview(1)">›</button>
 </section>
 
 <section class="partners">
