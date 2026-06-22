@@ -476,7 +476,7 @@ font-weight: 800;
   z-index: 9999;
 
   display: block;
-  width: calc(100% - 44px);
+width: calc(100% - 80px);
   max-width: 620px;
   margin: 0;
 
