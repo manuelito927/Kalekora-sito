@@ -57,27 +57,43 @@ margin-bottom: clamp(18px, 4vw, 32px);
   transform: none;
 }
 
-.brand-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.brand-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
 }
 
 .logo-block{
-  width: 230px;
+  width: 300px;
   height: 95px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(-45px);
+  transform: translateX(-25px);
   flex-shrink: 0;
 }
 
 .logo-img{
-  width: 900px;
+  width: 1100px;
   height: auto;
   display: block;
+}
+
+.menu-btn{
+  width:48px;
+  height:48px;
+  min-width:48px;
+  flex-shrink:0;
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  cursor:pointer;
+  margin-top:13px;
 }
 
 .logo-symbol{
@@ -95,24 +111,6 @@ margin-bottom: clamp(18px, 4vw, 32px);
   color:white;
 }
 
-
-.menu-btn {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  flex-shrink: 0;
-  background: rgba(255,255,255,0.12);
-  color: white;
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  z-index: 20;
-  margin-top: 13px;
-}
 
 /* HERO */
 
