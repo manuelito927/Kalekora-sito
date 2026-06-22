@@ -70,7 +70,7 @@ margin-bottom: clamp(18px, 4vw, 32px);
   display:flex;
   align-items:center;
   justify-content:flex-start;
-  margin-left:-110px;
+  margin-left:-200px;
   transform:translateY(-8px);
   pointer-events:none;
 }
