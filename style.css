@@ -64,12 +64,13 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .logo-block{
-width: 1220px;
+  width: 220px;
   height: 95px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateX(-45px);
 }
 
 .logo-img{
