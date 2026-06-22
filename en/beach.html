@@ -23,31 +23,34 @@
       color: var(--black);
     }
 
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 0;
-      margin-top: 0;
-      transition: max-height 0.35s ease, margin-top 0.35s ease;
-    }
+.mobile-menu{
+  max-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding:0;
+  margin-top:0;
+  transition:max-height .35s ease, margin-top .35s ease;
+  position:relative;
+  z-index:1000;
+}
 
-    .mobile-menu.active {
-      max-height: 420px;
-      margin-top: 28px;
-    }
+.mobile-menu.active{
+  max-height:650px;
+  margin-top:30px;
+  padding-bottom:24px;
+}
 
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      font-size: 20px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-    }
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.25);
+}
 
     .mobile-header{
       background:#b9a789;
