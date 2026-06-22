@@ -65,8 +65,8 @@ margin-bottom: clamp(18px, 4vw, 32px);
 
 .logo-block{
   display:flex;
-  flex-direction:column;
   align-items:center;
+  justify-content:center;
   color:white;
 }
 
