@@ -70,7 +70,7 @@ margin-bottom: clamp(18px, 4vw, 32px);
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(-70px);
+  transform: translateX(-100px);
 }
 
 .logo-img{
