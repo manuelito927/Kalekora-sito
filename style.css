@@ -64,8 +64,8 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .logo-block{
-  width: 240px;
-  height: 130px;
+  width: 130px;
+  height: 95px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -73,7 +73,7 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .logo-img{
-  width: 760px;
+  width: 520px;
   height: auto;
   display: block;
 }
