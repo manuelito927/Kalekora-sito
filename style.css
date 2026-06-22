@@ -64,20 +64,22 @@ margin-bottom: clamp(18px, 4vw, 32px);
 }
 
 .logo-block{
-  width: 300px;
-  height: 95px;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-left: -90px;
-  transform: translateY(-8px);
+  width:300px;
+  height:95px;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  margin-left:-90px;
+  transform:translateY(-8px);
+  pointer-events:none;
 }
 
 .logo-img{
-  width: 1250px;
-  height: auto;
-  display: block;
+  width:1250px;
+  height:auto;
+  display:block;
+  pointer-events:none;
 }
 
 .menu-btn{
@@ -94,6 +96,8 @@ margin-bottom: clamp(18px, 4vw, 32px);
   border:none;
   cursor:pointer;
   margin-top:13px;
+  position:relative;
+  z-index:1000;
 }
 
 .logo-symbol{
