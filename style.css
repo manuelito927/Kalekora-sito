@@ -70,7 +70,7 @@ margin-bottom: clamp(18px, 4vw, 32px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: -40px;
+  margin-left: -90px;
 }
 
 .logo-img{
