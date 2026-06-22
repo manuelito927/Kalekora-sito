@@ -788,6 +788,51 @@ function changeSponsor(direction) {
 
 setInterval(() => { changeSponsor(1); }, 3000);
 
+const reviews = [
+  {
+    name:"ALESSANDRA",
+    date:"AUGUST 2025",
+    text:"A true gem by the sea! The beach club is cared for in every detail, with a relaxing atmosphere, kind staff and excellent cuisine."
+  },
+  {
+    name:"SILVIA G",
+    date:"AUGUST 2025",
+    text:"A wonderful day in one of the best beach clubs on the Adriatic coast. Great food quality and very kind service."
+  },
+  {
+    name:"ODYSSEY",
+    date:"JULY 2024",
+    text:"A spectacular beach club, very kind staff, good food and everyone is extremely helpful."
+  },
+  {
+    name:"CLAUDIA M",
+    date:"JULY 2024",
+    text:"A well-kept beach and helpful staff. We felt like part of the family."
+  },
+  {
+    name:"RICCIONE",
+    date:"JULY 2023",
+    text:"A beautiful beach with a spectacular sea view and unforgettable aperitifs."
+  }
+];
+
+let reviewIndex = 0;
+
+function updateReview(){
+  document.getElementById("reviewText").textContent = reviews[reviewIndex].text;
+  document.getElementById("reviewName").textContent = reviews[reviewIndex].name;
+  document.getElementById("reviewDate").textContent = reviews[reviewIndex].date;
+}
+
+function changeReview(direction){
+  reviewIndex = (reviewIndex + direction + reviews.length) % reviews.length;
+  updateReview();
+}
+
+setInterval(() => {
+  changeReview(1);
+}, 5000);
+
 document.querySelectorAll(".menu-category-head").forEach(btn => {
   btn.addEventListener("click", () => {
     btn.closest(".menu-category-box").classList.toggle("active");
