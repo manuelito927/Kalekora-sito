@@ -464,9 +464,9 @@ function changeSponsor(d){
 }
 setInterval(()=>changeSponsor(1),3000);
 window.addEventListener('load', () => {
-  const revealElements = document.querySelectorAll(
-".intro, .info-section, .map-box-elegant, .form-section, .footer"
-  );
+const revealElements = document.querySelectorAll(
+".intro, .info-section, .form-section, .footer"
+);
   revealElements.forEach(el => el.classList.add("reveal"));
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
