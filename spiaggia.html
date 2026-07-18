@@ -792,7 +792,7 @@ menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("active");
 });
 
-window.addEventListener('load', () => {
+function activateReveals() {
   const revealElements = document.querySelectorAll(
     ".intro, .image-composition img, .services, .footer"
   );
@@ -812,17 +812,26 @@ window.addEventListener('load', () => {
   });
 
   revealElements.forEach(el => observer.observe(el));
-});
 
-  // Fix: forza il check sugli elementi già visibili al caricamento
   setTimeout(() => {
     revealElements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
+
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add("active");
       }
     });
   }, 100);
+}
+
+window.addEventListener("load", activateReveals);
+
+/* Corregge il ritorno alla pagina su Safari/iPhone */
+window.addEventListener("pageshow", () => {
+  document.documentElement.style.overflowY = "auto";
+  document.body.style.overflowY = "auto";
+});
+</script>
 
 
 </script>
